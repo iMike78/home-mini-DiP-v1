@@ -1,0 +1,923 @@
+** Drc report for home-mini-DiP-v1.kicad_pcb **
+** Created on 2025-12-20T13:41:27+0000 **
+
+** Found 228 DRC violations **
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1115 mm)
+    Local override; error
+    @(114,4000 mm, 89,0000 mm): Track [I2S2_BCLK] on B.Cu, length 1,3000 mm
+    @(114,8000 mm, 88,6000 mm): Via [I2S2_LRCLK] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1865 mm)
+    Rule: board setup constraints hole; error
+    @(114,4000 mm, 89,0000 mm): Track [I2S2_BCLK] on B.Cu, length 1,3000 mm
+    @(114,8000 mm, 88,6000 mm): Via [I2S2_LRCLK] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1115 mm)
+    Local override; error
+    @(160,7000 mm, 78,7000 mm): Track [/XMOS/TDO] on B.Cu, length 5,5000 mm
+    @(160,3000 mm, 76,3000 mm): Via [GND] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1865 mm)
+    Rule: board setup constraints hole; error
+    @(160,7000 mm, 78,7000 mm): Track [/XMOS/TDO] on B.Cu, length 5,5000 mm
+    @(160,3000 mm, 76,3000 mm): Via [GND] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1115 mm)
+    Local override; error
+    @(112,2200 mm, 78,6000 mm): Track [ESP_BOOT] on F.Cu, length 3,4449 mm
+    @(109,4000 mm, 79,0000 mm): Via [ESP_MUTE_DET] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1865 mm)
+    Rule: board setup constraints hole; error
+    @(112,2200 mm, 78,6000 mm): Track [ESP_BOOT] on F.Cu, length 3,4449 mm
+    @(109,4000 mm, 79,0000 mm): Via [ESP_MUTE_DET] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1115 mm)
+    Local override; error
+    @(112,2200 mm, 79,4000 mm): Track [Net-(U6-GPIO2)] on F.Cu, length 3,0200 mm
+    @(109,4000 mm, 79,0000 mm): Via [ESP_MUTE_DET] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1865 mm)
+    Rule: board setup constraints hole; error
+    @(112,2200 mm, 79,4000 mm): Track [Net-(U6-GPIO2)] on F.Cu, length 3,0200 mm
+    @(109,4000 mm, 79,0000 mm): Via [ESP_MUTE_DET] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1115 mm)
+    Local override; error
+    @(117,2000 mm, 85,7200 mm): Track [ESP_3V3] on F.Cu, length 2,9000 mm
+    @(116,8000 mm, 88,4000 mm): Via [ESP_USB_N] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1865 mm)
+    Rule: board setup constraints hole; error
+    @(117,2000 mm, 85,7200 mm): Track [ESP_3V3] on F.Cu, length 2,9000 mm
+    @(116,8000 mm, 88,4000 mm): Via [ESP_USB_N] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1115 mm)
+    Local override; error
+    @(145,1000 mm, 68,7000 mm): Via [VDDIO] on F.Cu - B.Cu
+    @(145,5000 mm, 67,9000 mm): Track [/XMOS/XOD43] on F.Cu, length 2,5000 mm
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1865 mm)
+    Rule: board setup constraints hole; error
+    @(145,5000 mm, 67,9000 mm): Track [/XMOS/XOD43] on F.Cu, length 2,5000 mm
+    @(145,1000 mm, 68,7000 mm): Via [VDDIO] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1115 mm)
+    Local override; error
+    @(109,0000 mm, 80,6000 mm): Via [I2C_SDA] on F.Cu - B.Cu
+    @(109,4000 mm, 79,0000 mm): Track [ESP_MUTE_DET] on In1.GND, length 4,6000 mm
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1865 mm)
+    Rule: board setup constraints hole; error
+    @(109,4000 mm, 79,0000 mm): Track [ESP_MUTE_DET] on In1.GND, length 4,6000 mm
+    @(109,0000 mm, 80,6000 mm): Via [I2C_SDA] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1115 mm)
+    Local override; error
+    @(109,8000 mm, 79,9000 mm): Via [Net-(U6-GPIO3)] on F.Cu - B.Cu
+    @(109,4000 mm, 79,0000 mm): Track [ESP_MUTE_DET] on In1.GND, length 4,6000 mm
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1865 mm)
+    Rule: board setup constraints hole; error
+    @(109,4000 mm, 79,0000 mm): Track [ESP_MUTE_DET] on In1.GND, length 4,6000 mm
+    @(109,8000 mm, 79,9000 mm): Via [Net-(U6-GPIO3)] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1115 mm)
+    Local override; error
+    @(112,2200 mm, 80,6000 mm): Track [I2C_SDA] on F.Cu, length 3,2200 mm
+    @(110,4000 mm, 80,2000 mm): Via [Net-(U6-GPIO4)] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1865 mm)
+    Rule: board setup constraints hole; error
+    @(112,2200 mm, 80,6000 mm): Track [I2C_SDA] on F.Cu, length 3,2200 mm
+    @(110,4000 mm, 80,2000 mm): Via [Net-(U6-GPIO4)] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1115 mm)
+    Local override; error
+    @(112,2200 mm, 80,6000 mm): Track [I2C_SDA] on F.Cu, length 3,2200 mm
+    @(110,0000 mm, 81,0000 mm): Via [I2C_SCL] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1865 mm)
+    Rule: board setup constraints hole; error
+    @(112,2200 mm, 80,6000 mm): Track [I2C_SDA] on F.Cu, length 3,2200 mm
+    @(110,0000 mm, 81,0000 mm): Via [I2C_SCL] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1115 mm)
+    Local override; error
+    @(132,0000 mm, 63,4000 mm): Via [GND] on F.Cu - B.Cu
+    @(143,5000 mm, 63,0000 mm): Track [I2S_DIN_ESP] on B.Cu, length 13,0000 mm
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1865 mm)
+    Rule: board setup constraints hole; error
+    @(143,5000 mm, 63,0000 mm): Track [I2S_DIN_ESP] on B.Cu, length 13,0000 mm
+    @(132,0000 mm, 63,4000 mm): Via [GND] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1115 mm)
+    Local override; error
+    @(144,0000 mm, 63,8000 mm): Track [I2C2_SCL] on B.Cu, length 13,3000 mm
+    @(132,0000 mm, 63,4000 mm): Via [GND] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1865 mm)
+    Rule: board setup constraints hole; error
+    @(144,0000 mm, 63,8000 mm): Track [I2C2_SCL] on B.Cu, length 13,3000 mm
+    @(132,0000 mm, 63,4000 mm): Via [GND] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1243 mm)
+    Local override; error
+    @(149,4000 mm, 70,8000 mm): Via [I2C_SCL] on F.Cu - B.Cu
+    @(149,3000 mm, 70,3000 mm): Track [I2C_SDA] on F.Cu, length 1,7085 mm
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1993 mm)
+    Rule: board setup constraints hole; error
+    @(149,3000 mm, 70,3000 mm): Track [I2C_SDA] on F.Cu, length 1,7085 mm
+    @(149,4000 mm, 70,8000 mm): Via [I2C_SCL] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1115 mm)
+    Local override; error
+    @(133,8050 mm, 93,2000 mm): Track [MUTE_ON] on F.Cu, length 13,4950 mm
+    @(144,2000 mm, 92,8000 mm): Via [AUDIO_PA_EN] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1865 mm)
+    Rule: board setup constraints hole; error
+    @(133,8050 mm, 93,2000 mm): Track [MUTE_ON] on F.Cu, length 13,4950 mm
+    @(144,2000 mm, 92,8000 mm): Via [AUDIO_PA_EN] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1115 mm)
+    Local override; error
+    @(121,9000 mm, 83,7000 mm): Track [ESP_WS2812] on B.Cu, length 4,0000 mm
+    @(119,8000 mm, 84,1000 mm): Via [/ESP32-S3R8/SPI_WP] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1865 mm)
+    Rule: board setup constraints hole; error
+    @(121,9000 mm, 83,7000 mm): Track [ESP_WS2812] on B.Cu, length 4,0000 mm
+    @(119,8000 mm, 84,1000 mm): Via [/ESP32-S3R8/SPI_WP] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1115 mm)
+    Local override; error
+    @(111,5000 mm, 75,5000 mm): Via [GND] on F.Cu - B.Cu
+    @(111,7000 mm, 75,9000 mm): Track [I2S_DIN_ESP] on B.Cu, length 1,6000 mm
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1865 mm)
+    Rule: board setup constraints hole; error
+    @(111,7000 mm, 75,9000 mm): Track [I2S_DIN_ESP] on B.Cu, length 1,6000 mm
+    @(111,5000 mm, 75,5000 mm): Via [GND] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1115 mm)
+    Local override; error
+    @(109,0000 mm, 80,6000 mm): Via [I2C_SDA] on F.Cu - B.Cu
+    @(110,0000 mm, 81,0000 mm): Track [I2C_SCL] on F.Cu, length 1,3900 mm
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1865 mm)
+    Rule: board setup constraints hole; error
+    @(110,0000 mm, 81,0000 mm): Track [I2C_SCL] on F.Cu, length 1,3900 mm
+    @(109,0000 mm, 80,6000 mm): Via [I2C_SDA] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1110 mm)
+    Local override; error
+    @(116,4000 mm, 78,3000 mm): Track [I2C_SCL] on B.Cu, length 3,8184 mm
+    @(115,6650 mm, 79,6000 mm): Via [GND] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1860 mm)
+    Rule: board setup constraints hole; error
+    @(116,4000 mm, 78,3000 mm): Track [I2C_SCL] on B.Cu, length 3,8184 mm
+    @(115,6650 mm, 79,6000 mm): Via [GND] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1200 mm)
+    Local override; error
+    @(116,4000 mm, 78,3000 mm): Track [I2C_SCL] on B.Cu, length 3,8184 mm
+    @(114,0431 mm, 81,2346 mm): Via [GND] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1950 mm)
+    Rule: board setup constraints hole; error
+    @(116,4000 mm, 78,3000 mm): Track [I2C_SCL] on B.Cu, length 3,8184 mm
+    @(114,0431 mm, 81,2346 mm): Via [GND] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1135 mm)
+    Local override; error
+    @(118,1020 mm, 91,0020 mm): Track [I2S2_LRCLK] on B.Cu, length 2,3960 mm
+    @(120,3000 mm, 90,6000 mm): Via [/ESP32-S3R8/SPI_WP] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1885 mm)
+    Rule: board setup constraints hole; error
+    @(118,1020 mm, 91,0020 mm): Track [I2S2_LRCLK] on B.Cu, length 2,3960 mm
+    @(120,3000 mm, 90,6000 mm): Via [/ESP32-S3R8/SPI_WP] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1027 mm)
+    Local override; error
+    @(120,1000 mm, 78,3000 mm): Track [I2C_SCL] on B.Cu, length 3,7000 mm
+    @(117,3145 mm, 77,9088 mm): Via [GND] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1777 mm)
+    Rule: board setup constraints hole; error
+    @(120,1000 mm, 78,3000 mm): Track [I2C_SCL] on B.Cu, length 3,7000 mm
+    @(117,3145 mm, 77,9088 mm): Via [GND] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1115 mm)
+    Local override; error
+    @(111,5000 mm, 93,7000 mm): Track [/XMOS/MIC_CLK_M] on F.Cu, length 2,8000 mm
+    @(113,6000 mm, 93,3000 mm): Via [/XMOS/MIC_DATA_M] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1865 mm)
+    Rule: board setup constraints hole; error
+    @(111,5000 mm, 93,7000 mm): Track [/XMOS/MIC_CLK_M] on F.Cu, length 2,8000 mm
+    @(113,6000 mm, 93,3000 mm): Via [/XMOS/MIC_DATA_M] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1115 mm)
+    Local override; error
+    @(116,4000 mm, 88,6000 mm): Track [AUDIO_PA_EN] on F.Cu, length 0,4000 mm
+    @(116,8000 mm, 88,4000 mm): Via [ESP_USB_N] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1865 mm)
+    Rule: board setup constraints hole; error
+    @(116,4000 mm, 88,6000 mm): Track [AUDIO_PA_EN] on F.Cu, length 0,4000 mm
+    @(116,8000 mm, 88,4000 mm): Via [ESP_USB_N] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1157 mm)
+    Local override; error
+    @(112,4000 mm, 91,1000 mm): Via [ESP_USB_P] on F.Cu - B.Cu
+    @(112,8000 mm, 91,5000 mm): Via [ESP_USB_N] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1907 mm)
+    Rule: board setup constraints hole; error
+    @(112,4000 mm, 91,1000 mm): Via [ESP_USB_P] on F.Cu - B.Cu
+    @(112,8000 mm, 91,5000 mm): Via [ESP_USB_N] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1115 mm)
+    Local override; error
+    @(140,5000 mm, 97,9000 mm): Track [XMOS_USB_P] on B.Cu, length 5,6000 mm
+    @(135,8000 mm, 98,3000 mm): Via [VBUS] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1865 mm)
+    Rule: board setup constraints hole; error
+    @(140,5000 mm, 97,9000 mm): Track [XMOS_USB_P] on B.Cu, length 5,6000 mm
+    @(135,8000 mm, 98,3000 mm): Via [VBUS] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1115 mm)
+    Local override; error
+    @(114,5000 mm, 93,9000 mm): Via [/XMOS/MIC_CLK_M] on F.Cu - B.Cu
+    @(114,9000 mm, 95,3200 mm): Track [RST_DAC] on F.Cu, length 4,1200 mm
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1865 mm)
+    Rule: board setup constraints hole; error
+    @(114,9000 mm, 95,3200 mm): Track [RST_DAC] on F.Cu, length 4,1200 mm
+    @(114,5000 mm, 93,9000 mm): Via [/XMOS/MIC_CLK_M] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1157 mm)
+    Local override; error
+    @(112,4000 mm, 91,1000 mm): Via [ESP_USB_P] on F.Cu - B.Cu
+    @(112,8000 mm, 91,5000 mm): Via [ESP_USB_N] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1907 mm)
+    Rule: board setup constraints hole; error
+    @(112,4000 mm, 91,1000 mm): Via [ESP_USB_P] on F.Cu - B.Cu
+    @(112,8000 mm, 91,5000 mm): Via [ESP_USB_N] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1157 mm)
+    Local override; error
+    @(112,4000 mm, 91,1000 mm): Via [ESP_USB_P] on F.Cu - B.Cu
+    @(112,8000 mm, 91,5000 mm): Via [ESP_USB_N] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1907 mm)
+    Rule: board setup constraints hole; error
+    @(112,4000 mm, 91,1000 mm): Via [ESP_USB_P] on F.Cu - B.Cu
+    @(112,8000 mm, 91,5000 mm): Via [ESP_USB_N] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1157 mm)
+    Local override; error
+    @(112,4000 mm, 91,1000 mm): Via [ESP_USB_P] on F.Cu - B.Cu
+    @(112,8000 mm, 91,5000 mm): Via [ESP_USB_N] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1907 mm)
+    Rule: board setup constraints hole; error
+    @(112,4000 mm, 91,1000 mm): Via [ESP_USB_P] on F.Cu - B.Cu
+    @(112,8000 mm, 91,5000 mm): Via [ESP_USB_N] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1203 mm)
+    Local override; error
+    @(120,1000 mm, 77,5000 mm): Track [I2C_SDA] on B.Cu, length 3,3000 mm
+    @(117,3145 mm, 77,9088 mm): Via [GND] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1953 mm)
+    Rule: board setup constraints hole; error
+    @(120,1000 mm, 77,5000 mm): Track [I2C_SDA] on B.Cu, length 3,3000 mm
+    @(117,3145 mm, 77,9088 mm): Via [GND] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1115 mm)
+    Local override; error
+    @(110,0000 mm, 81,0000 mm): Via [I2C_SCL] on F.Cu - B.Cu
+    @(110,4000 mm, 80,6000 mm): Track [I2C_SDA] on B.Cu, length 1,4000 mm
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1865 mm)
+    Rule: board setup constraints hole; error
+    @(110,4000 mm, 80,6000 mm): Track [I2C_SDA] on B.Cu, length 1,4000 mm
+    @(110,0000 mm, 81,0000 mm): Via [I2C_SCL] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1115 mm)
+    Local override; error
+    @(110,4000 mm, 80,2000 mm): Via [Net-(U6-GPIO4)] on F.Cu - B.Cu
+    @(110,4000 mm, 80,6000 mm): Track [I2C_SDA] on B.Cu, length 1,4000 mm
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1865 mm)
+    Rule: board setup constraints hole; error
+    @(110,4000 mm, 80,6000 mm): Track [I2C_SDA] on B.Cu, length 1,4000 mm
+    @(110,4000 mm, 80,2000 mm): Via [Net-(U6-GPIO4)] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1115 mm)
+    Local override; error
+    @(110,4000 mm, 80,2000 mm): Via [Net-(U6-GPIO4)] on F.Cu - B.Cu
+    @(110,5000 mm, 80,7000 mm): Track [I2C_SDA] on B.Cu, length 0,1414 mm
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1865 mm)
+    Rule: board setup constraints hole; error
+    @(110,5000 mm, 80,7000 mm): Track [I2C_SDA] on B.Cu, length 0,1414 mm
+    @(110,4000 mm, 80,2000 mm): Via [Net-(U6-GPIO4)] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1250 mm)
+    Local override; error
+    @(156,6000 mm, 81,9000 mm): Via [GND] on F.Cu - B.Cu
+    @(157,2000 mm, 83,0000 mm): Track [+0V9] on F.Cu, length 1,7000 mm
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1115 mm)
+    Local override; error
+    @(124,7000 mm, 80,4000 mm): Via [RST_DAC] on F.Cu - B.Cu
+    @(125,4000 mm, 80,8000 mm): Track [Net-(U6-GPIO3)] on In1.GND, length 10,7000 mm
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1865 mm)
+    Rule: board setup constraints hole; error
+    @(125,4000 mm, 80,8000 mm): Track [Net-(U6-GPIO3)] on In1.GND, length 10,7000 mm
+    @(124,7000 mm, 80,4000 mm): Via [RST_DAC] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1115 mm)
+    Local override; error
+    @(112,2200 mm, 81,4000 mm): Track [Net-(U6-GPIO7)] on F.Cu, length 3,0100 mm
+    @(110,0000 mm, 81,0000 mm): Via [I2C_SCL] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1865 mm)
+    Rule: board setup constraints hole; error
+    @(112,2200 mm, 81,4000 mm): Track [Net-(U6-GPIO7)] on F.Cu, length 3,0100 mm
+    @(110,0000 mm, 81,0000 mm): Via [I2C_SCL] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1040 mm)
+    Local override; error
+    @(112,4000 mm, 91,1000 mm): Via [ESP_USB_P] on F.Cu - B.Cu
+    @(112,8000 mm, 89,8000 mm): Track [ESP_USB_N] on B.Cu, length 1,7000 mm
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1790 mm)
+    Rule: board setup constraints hole; error
+    @(112,8000 mm, 89,8000 mm): Track [ESP_USB_N] on B.Cu, length 1,7000 mm
+    @(112,4000 mm, 91,1000 mm): Via [ESP_USB_P] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1040 mm)
+    Local override; error
+    @(114,8000 mm, 88,6000 mm): Via [I2S2_LRCLK] on F.Cu - B.Cu
+    @(116,6000 mm, 88,2000 mm): Track [ESP_USB_N] on B.Cu, length 2,2000 mm
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1790 mm)
+    Rule: board setup constraints hole; error
+    @(116,6000 mm, 88,2000 mm): Track [ESP_USB_N] on B.Cu, length 2,2000 mm
+    @(114,8000 mm, 88,6000 mm): Via [I2S2_LRCLK] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1115 mm)
+    Local override; error
+    @(137,5000 mm, 72,6000 mm): Via [VDDIO] on F.Cu - B.Cu
+    @(136,8000 mm, 72,2000 mm): Track [I2S2_DATA] on F.Cu, length 1,3000 mm
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1865 mm)
+    Rule: board setup constraints hole; error
+    @(136,8000 mm, 72,2000 mm): Track [I2S2_DATA] on F.Cu, length 1,3000 mm
+    @(137,5000 mm, 72,6000 mm): Via [VDDIO] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1157 mm)
+    Local override; error
+    @(141,4000 mm, 94,3000 mm): Via [VDD_MIC] on F.Cu - B.Cu
+    @(141,0000 mm, 93,9000 mm): Via [/XMOS/MIC_CLK_M] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1907 mm)
+    Rule: board setup constraints hole; error
+    @(141,4000 mm, 94,3000 mm): Via [VDD_MIC] on F.Cu - B.Cu
+    @(141,0000 mm, 93,9000 mm): Via [/XMOS/MIC_CLK_M] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1157 mm)
+    Local override; error
+    @(141,4000 mm, 94,3000 mm): Via [VDD_MIC] on F.Cu - B.Cu
+    @(141,0000 mm, 93,9000 mm): Via [/XMOS/MIC_CLK_M] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1907 mm)
+    Rule: board setup constraints hole; error
+    @(141,4000 mm, 94,3000 mm): Via [VDD_MIC] on F.Cu - B.Cu
+    @(141,0000 mm, 93,9000 mm): Via [/XMOS/MIC_CLK_M] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1115 mm)
+    Local override; error
+    @(125,9000 mm, 84,0000 mm): Track [XU316_RST] on F.Cu, length 2,4000 mm
+    @(126,1000 mm, 83,6000 mm): Via [I2S2_DATA] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1865 mm)
+    Rule: board setup constraints hole; error
+    @(125,9000 mm, 84,0000 mm): Track [XU316_RST] on F.Cu, length 2,4000 mm
+    @(126,1000 mm, 83,6000 mm): Via [I2S2_DATA] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1157 mm)
+    Local override; error
+    @(141,4000 mm, 94,3000 mm): Via [VDD_MIC] on F.Cu - B.Cu
+    @(141,0000 mm, 93,9000 mm): Via [/XMOS/MIC_CLK_M] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1907 mm)
+    Rule: board setup constraints hole; error
+    @(141,4000 mm, 94,3000 mm): Via [VDD_MIC] on F.Cu - B.Cu
+    @(141,0000 mm, 93,9000 mm): Via [/XMOS/MIC_CLK_M] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1157 mm)
+    Local override; error
+    @(141,4000 mm, 94,3000 mm): Via [VDD_MIC] on F.Cu - B.Cu
+    @(141,0000 mm, 93,9000 mm): Via [/XMOS/MIC_CLK_M] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1907 mm)
+    Rule: board setup constraints hole; error
+    @(141,4000 mm, 94,3000 mm): Via [VDD_MIC] on F.Cu - B.Cu
+    @(141,0000 mm, 93,9000 mm): Via [/XMOS/MIC_CLK_M] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1115 mm)
+    Local override; error
+    @(126,7000 mm, 83,2000 mm): Track [I2S_DIN_SEC] on B.Cu, length 1,4000 mm
+    @(126,1000 mm, 83,6000 mm): Via [I2S2_DATA] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1865 mm)
+    Rule: board setup constraints hole; error
+    @(126,7000 mm, 83,2000 mm): Track [I2S_DIN_SEC] on B.Cu, length 1,4000 mm
+    @(126,1000 mm, 83,6000 mm): Via [I2S2_DATA] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1150 mm)
+    Local override; error
+    @(135,9000 mm, 80,4000 mm): Via [/XMOS/VBUS_DETEC] on F.Cu - B.Cu
+    @(136,5200 mm, 80,5000 mm): Pad 1 [Net-(C44-Pad1)] of C44 on F.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1115 mm)
+    Local override; error
+    @(116,9000 mm, 92,3000 mm): Via [GND] on F.Cu - B.Cu
+    @(121,4000 mm, 92,7000 mm): Track [I2S2_DATA] on B.Cu, length 8,4000 mm
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1865 mm)
+    Rule: board setup constraints hole; error
+    @(121,4000 mm, 92,7000 mm): Track [I2S2_DATA] on B.Cu, length 8,4000 mm
+    @(116,9000 mm, 92,3000 mm): Via [GND] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1115 mm)
+    Local override; error
+    @(128,3000 mm, 90,8000 mm): Track [ESP_3V3] on B.Cu, length 8,2000 mm
+    @(127,9000 mm, 85,1000 mm): Via [GND] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1865 mm)
+    Rule: board setup constraints hole; error
+    @(128,3000 mm, 90,8000 mm): Track [ESP_3V3] on B.Cu, length 8,2000 mm
+    @(127,9000 mm, 85,1000 mm): Via [GND] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1115 mm)
+    Local override; error
+    @(121,4000 mm, 92,7000 mm): Track [I2S2_DATA] on B.Cu, length 8,4000 mm
+    @(114,0000 mm, 92,3000 mm): Via [GND] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1865 mm)
+    Rule: board setup constraints hole; error
+    @(121,4000 mm, 92,7000 mm): Track [I2S2_DATA] on B.Cu, length 8,4000 mm
+    @(114,0000 mm, 92,3000 mm): Via [GND] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1115 mm)
+    Local override; error
+    @(117,6000 mm, 74,8000 mm): Track [ESP_IO41] on F.Cu, length 4,0000 mm
+    @(120,6000 mm, 74,4000 mm): Via [ESP_IO40] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1865 mm)
+    Rule: board setup constraints hole; error
+    @(117,6000 mm, 74,8000 mm): Track [ESP_IO41] on F.Cu, length 4,0000 mm
+    @(120,6000 mm, 74,4000 mm): Via [ESP_IO40] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1115 mm)
+    Local override; error
+    @(117,6000 mm, 74,8000 mm): Track [ESP_IO41] on F.Cu, length 4,0000 mm
+    @(119,8000 mm, 75,2000 mm): Via [ESP_IO40] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1865 mm)
+    Rule: board setup constraints hole; error
+    @(117,6000 mm, 74,8000 mm): Track [ESP_IO41] on F.Cu, length 4,0000 mm
+    @(119,8000 mm, 75,2000 mm): Via [ESP_IO40] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1115 mm)
+    Local override; error
+    @(126,2000 mm, 121,5000 mm): Via [GND] on F.Cu - B.Cu
+    @(126,0000 mm, 121,9000 mm): Track [RST_BTN] on F.Cu, length 2,4000 mm
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1865 mm)
+    Rule: board setup constraints hole; error
+    @(126,0000 mm, 121,9000 mm): Track [RST_BTN] on F.Cu, length 2,4000 mm
+    @(126,2000 mm, 121,5000 mm): Via [GND] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1115 mm)
+    Local override; error
+    @(120,2000 mm, 95,4000 mm): Via [GND] on F.Cu - B.Cu
+    @(140,7000 mm, 95,0000 mm): Track [VDD_MIC] on B.Cu, length 26,6000 mm
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1865 mm)
+    Rule: board setup constraints hole; error
+    @(140,7000 mm, 95,0000 mm): Track [VDD_MIC] on B.Cu, length 26,6000 mm
+    @(120,2000 mm, 95,4000 mm): Via [GND] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1115 mm)
+    Local override; error
+    @(163,2000 mm, 83,0000 mm): Via [GND] on F.Cu - B.Cu
+    @(166,3000 mm, 83,4000 mm): Track [/XMOS/MIC_CLK] on F.Cu, length 5,7000 mm
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1865 mm)
+    Rule: board setup constraints hole; error
+    @(166,3000 mm, 83,4000 mm): Track [/XMOS/MIC_CLK] on F.Cu, length 5,7000 mm
+    @(163,2000 mm, 83,0000 mm): Via [GND] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1115 mm)
+    Local override; error
+    @(152,0000 mm, 72,5000 mm): Via [VDDIO] on F.Cu - B.Cu
+    @(151,2100 mm, 72,9000 mm): Track [/XMOS/MIC_CLK] on F.Cu, length 9,5900 mm
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1865 mm)
+    Rule: board setup constraints hole; error
+    @(151,2100 mm, 72,9000 mm): Track [/XMOS/MIC_CLK] on F.Cu, length 9,5900 mm
+    @(152,0000 mm, 72,5000 mm): Via [VDDIO] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1115 mm)
+    Local override; error
+    @(152,1000 mm, 73,3000 mm): Via [/XMOS/XL_UP1] on F.Cu - B.Cu
+    @(151,2100 mm, 72,9000 mm): Track [/XMOS/MIC_CLK] on F.Cu, length 9,5900 mm
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1865 mm)
+    Rule: board setup constraints hole; error
+    @(151,2100 mm, 72,9000 mm): Track [/XMOS/MIC_CLK] on F.Cu, length 9,5900 mm
+    @(152,1000 mm, 73,3000 mm): Via [/XMOS/XL_UP1] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1115 mm)
+    Local override; error
+    @(113,3000 mm, 97,4000 mm): Via [GND] on F.Cu - B.Cu
+    @(112,9000 mm, 93,2000 mm): Track [I2S_DIN_ESP] on B.Cu, length 7,7000 mm
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1865 mm)
+    Rule: board setup constraints hole; error
+    @(112,9000 mm, 93,2000 mm): Track [I2S_DIN_ESP] on B.Cu, length 7,7000 mm
+    @(113,3000 mm, 97,4000 mm): Via [GND] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1115 mm)
+    Local override; error
+    @(112,9000 mm, 93,2000 mm): Track [I2S_DIN_ESP] on B.Cu, length 7,7000 mm
+    @(113,3000 mm, 98,7000 mm): Via [GND] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1865 mm)
+    Rule: board setup constraints hole; error
+    @(112,9000 mm, 93,2000 mm): Track [I2S_DIN_ESP] on B.Cu, length 7,7000 mm
+    @(113,3000 mm, 98,7000 mm): Via [GND] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1115 mm)
+    Local override; error
+    @(133,7000 mm, 69,8000 mm): Via [/XMOS/QSPI_CS_N] on F.Cu - B.Cu
+    @(139,6000 mm, 69,4000 mm): Track [/XMOS/QSPI_D3] on F.Cu, length 6,2000 mm
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1865 mm)
+    Rule: board setup constraints hole; error
+    @(139,6000 mm, 69,4000 mm): Track [/XMOS/QSPI_D3] on F.Cu, length 6,2000 mm
+    @(133,7000 mm, 69,8000 mm): Via [/XMOS/QSPI_CS_N] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1097 mm)
+    Local override; error
+    @(114,6650 mm, 83,0450 mm): Track [Net-(U6-GPIO14)] on F.Cu, length 2,7200 mm
+    @(115,0632 mm, 83,8833 mm): Via [ESP_3V3] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1847 mm)
+    Rule: board setup constraints hole; error
+    @(114,6650 mm, 83,0450 mm): Track [Net-(U6-GPIO14)] on F.Cu, length 2,7200 mm
+    @(115,0632 mm, 83,8833 mm): Via [ESP_3V3] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1115 mm)
+    Local override; error
+    @(149,7000 mm, 93,7000 mm): Track [Net-(D8-Pad1)] on F.Cu, length 1,2475 mm
+    @(149,4000 mm, 94,1000 mm): Via [MUTE] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1865 mm)
+    Rule: board setup constraints hole; error
+    @(149,7000 mm, 93,7000 mm): Track [Net-(D8-Pad1)] on F.Cu, length 1,2475 mm
+    @(149,4000 mm, 94,1000 mm): Via [MUTE] on F.Cu - B.Cu
+[clearance]: Clearance violation (netclass 'power' clearance 0,2000 mm; actual 0,1981 mm)
+    Rule: netclass 'power'; error
+    @(138,9000 mm, 95,1000 mm): Pad 1 [+5V] of U11 on F.Cu
+    @(138,3000 mm, 95,8000 mm): Via [GND] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1238 mm)
+    Local override; error
+    @(152,0000 mm, 72,5000 mm): Via [VDDIO] on F.Cu - B.Cu
+    @(152,4000 mm, 73,0000 mm): Track [/XMOS/XL_UP1] on B.Cu, length 0,4000 mm
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1988 mm)
+    Rule: board setup constraints hole; error
+    @(152,4000 mm, 73,0000 mm): Track [/XMOS/XL_UP1] on B.Cu, length 0,4000 mm
+    @(152,0000 mm, 72,5000 mm): Via [VDDIO] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1238 mm)
+    Local override; error
+    @(152,0000 mm, 72,5000 mm): Via [VDDIO] on F.Cu - B.Cu
+    @(152,4000 mm, 72,6000 mm): Track [/XMOS/XL_UP1] on B.Cu, length 0,2828 mm
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1988 mm)
+    Rule: board setup constraints hole; error
+    @(152,4000 mm, 72,6000 mm): Track [/XMOS/XL_UP1] on B.Cu, length 0,2828 mm
+    @(152,0000 mm, 72,5000 mm): Via [VDDIO] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1115 mm)
+    Local override; error
+    @(105,9000 mm, 84,6000 mm): Via [I2S_MCLK] on F.Cu - B.Cu
+    @(105,5000 mm, 83,7000 mm): Track [I2S_BCLK] on F.Cu, length 1,3000 mm
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1865 mm)
+    Rule: board setup constraints hole; error
+    @(105,5000 mm, 83,7000 mm): Track [I2S_BCLK] on F.Cu, length 1,3000 mm
+    @(105,9000 mm, 84,6000 mm): Via [I2S_MCLK] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1255 mm)
+    Local override; error
+    @(114,9000 mm, 74,9000 mm): Track [Net-(U6-XTAL_N)] on F.Cu, length 0,8980 mm
+    @(115,0935 mm, 75,3128 mm): Via [XU316_RST] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1115 mm)
+    Local override; error
+    @(107,1000 mm, 93,4000 mm): Via [/XMOS/MIC_CLK_M] on F.Cu - B.Cu
+    @(107,5000 mm, 106,1000 mm): Track [RST_BTN] on F.Cu, length 13,4000 mm
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1865 mm)
+    Rule: board setup constraints hole; error
+    @(107,5000 mm, 106,1000 mm): Track [RST_BTN] on F.Cu, length 13,4000 mm
+    @(107,1000 mm, 93,4000 mm): Via [/XMOS/MIC_CLK_M] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1096 mm)
+    Local override; error
+    @(115,0935 mm, 75,3128 mm): Via [XU316_RST] on F.Cu - B.Cu
+    @(117,1000 mm, 74,9000 mm): Track [Net-(U6-XTAL_N)] on F.Cu, length 2,2000 mm
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1846 mm)
+    Rule: board setup constraints hole; error
+    @(117,1000 mm, 74,9000 mm): Track [Net-(U6-XTAL_N)] on F.Cu, length 2,2000 mm
+    @(115,0935 mm, 75,3128 mm): Via [XU316_RST] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1115 mm)
+    Local override; error
+    @(144,6000 mm, 93,5000 mm): Track [ESP_MUTE_DET] on F.Cu, length 10,1000 mm
+    @(141,0000 mm, 93,9000 mm): Via [/XMOS/MIC_CLK_M] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1865 mm)
+    Rule: board setup constraints hole; error
+    @(144,6000 mm, 93,5000 mm): Track [ESP_MUTE_DET] on F.Cu, length 10,1000 mm
+    @(141,0000 mm, 93,9000 mm): Via [/XMOS/MIC_CLK_M] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1115 mm)
+    Local override; error
+    @(107,2000 mm, 79,8000 mm): Track [ESP_3V3] on B.Cu, length 4,1000 mm
+    @(106,8000 mm, 77,6000 mm): Via [RST_BTN] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1865 mm)
+    Rule: board setup constraints hole; error
+    @(107,2000 mm, 79,8000 mm): Track [ESP_3V3] on B.Cu, length 4,1000 mm
+    @(106,8000 mm, 77,6000 mm): Via [RST_BTN] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1185 mm)
+    Local override; error
+    @(144,8070 mm, 78,5930 mm): Track [/XMOS/TMS] on F.Cu, length 1,0096 mm
+    @(144,4000 mm, 78,3000 mm): Via [Net-(U8-PLL_AVDD)] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1935 mm)
+    Rule: board setup constraints hole; error
+    @(144,8070 mm, 78,5930 mm): Track [/XMOS/TMS] on F.Cu, length 1,0096 mm
+    @(144,4000 mm, 78,3000 mm): Via [Net-(U8-PLL_AVDD)] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,0885 mm)
+    Local override; error
+    @(144,6000 mm, 78,8000 mm): Via [/XMOS/TMS] on F.Cu - B.Cu
+    @(144,4000 mm, 78,3000 mm): Via [Net-(U8-PLL_AVDD)] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1635 mm)
+    Rule: board setup constraints hole; error
+    @(144,6000 mm, 78,8000 mm): Via [/XMOS/TMS] on F.Cu - B.Cu
+    @(144,4000 mm, 78,3000 mm): Via [Net-(U8-PLL_AVDD)] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,0885 mm)
+    Local override; error
+    @(144,6000 mm, 78,8000 mm): Via [/XMOS/TMS] on F.Cu - B.Cu
+    @(144,4000 mm, 78,3000 mm): Via [Net-(U8-PLL_AVDD)] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1635 mm)
+    Rule: board setup constraints hole; error
+    @(144,6000 mm, 78,8000 mm): Via [/XMOS/TMS] on F.Cu - B.Cu
+    @(144,4000 mm, 78,3000 mm): Via [Net-(U8-PLL_AVDD)] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,0885 mm)
+    Local override; error
+    @(144,6000 mm, 78,8000 mm): Via [/XMOS/TMS] on F.Cu - B.Cu
+    @(144,4000 mm, 78,3000 mm): Via [Net-(U8-PLL_AVDD)] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1635 mm)
+    Rule: board setup constraints hole; error
+    @(144,6000 mm, 78,8000 mm): Via [/XMOS/TMS] on F.Cu - B.Cu
+    @(144,4000 mm, 78,3000 mm): Via [Net-(U8-PLL_AVDD)] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,0885 mm)
+    Local override; error
+    @(144,6000 mm, 78,8000 mm): Via [/XMOS/TMS] on F.Cu - B.Cu
+    @(144,4000 mm, 78,3000 mm): Via [Net-(U8-PLL_AVDD)] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1635 mm)
+    Rule: board setup constraints hole; error
+    @(144,6000 mm, 78,8000 mm): Via [/XMOS/TMS] on F.Cu - B.Cu
+    @(144,4000 mm, 78,3000 mm): Via [Net-(U8-PLL_AVDD)] on F.Cu - B.Cu
+[clearance]: Clearance violation (netclass '+1V8' clearance 0,2000 mm; actual 0,1915 mm)
+    Rule: netclass '+1V8'; error
+    @(145,4650 mm, 78,3000 mm): Pad 1 [Net-(U8-PLL_AVDD)] of FB3 on B.Cu
+    @(146,0000 mm, 79,2000 mm): Via [+1V8] on F.Cu - B.Cu
+[clearance]: Clearance violation (netclass '+1V8' clearance 0,2000 mm; actual 0,1935 mm)
+    Rule: netclass '+1V8'; error
+    @(145,8000 mm, 79,7000 mm): Track [+1V8] on In2.PWR, length 4,1000 mm
+    @(145,2006 mm, 79,1315 mm): Via [/XMOS/TCK] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1022 mm)
+    Local override; error
+    @(115,1000 mm, 75,9200 mm): Pad 1 [GND] of C30 on B.Cu
+    @(115,0935 mm, 75,3128 mm): Via [XU316_RST] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1215 mm)
+    Local override; error
+    @(145,4650 mm, 78,3000 mm): Pad 1 [Net-(U8-PLL_AVDD)] of FB3 on B.Cu
+    @(145,2006 mm, 79,1315 mm): Via [/XMOS/TCK] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1053 mm)
+    Local override; error
+    @(148,0819 mm, 74,7085 mm): Track [Net-(U8-X1D19)] on F.Cu, length 1,0096 mm
+    @(148,7634 mm, 74,3147 mm): Via [VDDIO] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1803 mm)
+    Rule: board setup constraints hole; error
+    @(148,0819 mm, 74,7085 mm): Track [Net-(U8-X1D19)] on F.Cu, length 1,0096 mm
+    @(148,7634 mm, 74,3147 mm): Via [VDDIO] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1243 mm)
+    Local override; error
+    @(142,8000 mm, 90,1000 mm): Track [Net-(LED3-DOUT)] on F.Cu, length 2,0736 mm
+    @(143,3000 mm, 91,2000 mm): Via [/XMOS/MIC_DATA_M] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1993 mm)
+    Rule: board setup constraints hole; error
+    @(142,8000 mm, 90,1000 mm): Track [Net-(LED3-DOUT)] on F.Cu, length 2,0736 mm
+    @(143,3000 mm, 91,2000 mm): Via [/XMOS/MIC_DATA_M] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1115 mm)
+    Local override; error
+    @(142,9000 mm, 86,2000 mm): Track [XMOS_USB_P] on B.Cu, length 5,2000 mm
+    @(143,3000 mm, 91,2000 mm): Via [/XMOS/MIC_DATA_M] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1865 mm)
+    Rule: board setup constraints hole; error
+    @(142,9000 mm, 86,2000 mm): Track [XMOS_USB_P] on B.Cu, length 5,2000 mm
+    @(143,3000 mm, 91,2000 mm): Via [/XMOS/MIC_DATA_M] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1182 mm)
+    Local override; error
+    @(108,0000 mm, 79,3751 mm): Track [ESP_BOOT] on F.Cu, length 2,4042 mm
+    @(106,8000 mm, 77,6000 mm): Via [RST_BTN] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1932 mm)
+    Rule: board setup constraints hole; error
+    @(108,0000 mm, 79,3751 mm): Track [ESP_BOOT] on F.Cu, length 2,4042 mm
+    @(106,8000 mm, 77,6000 mm): Via [RST_BTN] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1178 mm)
+    Local override; error
+    @(148,7634 mm, 74,3147 mm): Via [VDDIO] on F.Cu - B.Cu
+    @(148,0819 mm, 73,9084 mm): Track [Net-(U8-X1D22)] on F.Cu, length 1,3097 mm
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1928 mm)
+    Rule: board setup constraints hole; error
+    @(148,0819 mm, 73,9084 mm): Track [Net-(U8-X1D22)] on F.Cu, length 1,3097 mm
+    @(148,7634 mm, 74,3147 mm): Via [VDDIO] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1115 mm)
+    Local override; error
+    @(126,8000 mm, 121,5000 mm): Track [/Power/USB_D_N] on F.Cu, length 8,6000 mm
+    @(128,4000 mm, 121,9000 mm): Via [RST_BTN] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1865 mm)
+    Rule: board setup constraints hole; error
+    @(126,8000 mm, 121,5000 mm): Track [/Power/USB_D_N] on F.Cu, length 8,6000 mm
+    @(128,4000 mm, 121,9000 mm): Via [RST_BTN] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1065 mm)
+    Local override; error
+    @(121,6050 mm, 81,4050 mm): Track [/ESP32-S3R8/SPI_D] on F.Cu, length 4,1075 mm
+    @(122,0000 mm, 83,8000 mm): Via [ESP_WS2812] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1815 mm)
+    Rule: board setup constraints hole; error
+    @(121,6050 mm, 81,4050 mm): Track [/ESP32-S3R8/SPI_D] on F.Cu, length 4,1075 mm
+    @(122,0000 mm, 83,8000 mm): Via [ESP_WS2812] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1046 mm)
+    Local override; error
+    @(144,0069 mm, 77,5834 mm): Track [/XMOS/RST_N] on F.Cu, length 3,0097 mm
+    @(144,4000 mm, 78,3000 mm): Via [Net-(U8-PLL_AVDD)] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1796 mm)
+    Rule: board setup constraints hole; error
+    @(144,0069 mm, 77,5834 mm): Track [/XMOS/RST_N] on F.Cu, length 3,0097 mm
+    @(144,4000 mm, 78,3000 mm): Via [Net-(U8-PLL_AVDD)] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1115 mm)
+    Local override; error
+    @(144,2000 mm, 92,8000 mm): Via [AUDIO_PA_EN] on F.Cu - B.Cu
+    @(143,8000 mm, 92,3000 mm): Track [XMOS_USB_P] on B.Cu, length 2,3000 mm
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1865 mm)
+    Rule: board setup constraints hole; error
+    @(143,8000 mm, 92,3000 mm): Track [XMOS_USB_P] on B.Cu, length 2,3000 mm
+    @(144,2000 mm, 92,8000 mm): Via [AUDIO_PA_EN] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1115 mm)
+    Local override; error
+    @(126,8000 mm, 121,5000 mm): Track [/Power/USB_D_N] on F.Cu, length 8,6000 mm
+    @(130,1000 mm, 121,1000 mm): Via [/Power/USB_D_P] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1865 mm)
+    Rule: board setup constraints hole; error
+    @(126,8000 mm, 121,5000 mm): Track [/Power/USB_D_N] on F.Cu, length 8,6000 mm
+    @(130,1000 mm, 121,1000 mm): Via [/Power/USB_D_P] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1157 mm)
+    Local override; error
+    @(114,4000 mm, 89,0000 mm): Via [I2S2_BCLK] on F.Cu - B.Cu
+    @(114,8000 mm, 88,6000 mm): Via [I2S2_LRCLK] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1907 mm)
+    Rule: board setup constraints hole; error
+    @(114,4000 mm, 89,0000 mm): Via [I2S2_BCLK] on F.Cu - B.Cu
+    @(114,8000 mm, 88,6000 mm): Via [I2S2_LRCLK] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1115 mm)
+    Local override; error
+    @(114,4000 mm, 89,0000 mm): Via [I2S2_BCLK] on F.Cu - B.Cu
+    @(113,8000 mm, 89,4000 mm): Track [I2S2_MCLK] on B.Cu, length 1,8000 mm
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1865 mm)
+    Rule: board setup constraints hole; error
+    @(113,8000 mm, 89,4000 mm): Track [I2S2_MCLK] on B.Cu, length 1,8000 mm
+    @(114,4000 mm, 89,0000 mm): Via [I2S2_BCLK] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1157 mm)
+    Local override; error
+    @(114,4000 mm, 89,0000 mm): Via [I2S2_BCLK] on F.Cu - B.Cu
+    @(114,8000 mm, 88,6000 mm): Via [I2S2_LRCLK] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1907 mm)
+    Rule: board setup constraints hole; error
+    @(114,4000 mm, 89,0000 mm): Via [I2S2_BCLK] on F.Cu - B.Cu
+    @(114,8000 mm, 88,6000 mm): Via [I2S2_LRCLK] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1157 mm)
+    Local override; error
+    @(114,4000 mm, 89,0000 mm): Via [I2S2_BCLK] on F.Cu - B.Cu
+    @(114,8000 mm, 88,6000 mm): Via [I2S2_LRCLK] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1907 mm)
+    Rule: board setup constraints hole; error
+    @(114,4000 mm, 89,0000 mm): Via [I2S2_BCLK] on F.Cu - B.Cu
+    @(114,8000 mm, 88,6000 mm): Via [I2S2_LRCLK] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1157 mm)
+    Local override; error
+    @(114,4000 mm, 89,0000 mm): Via [I2S2_BCLK] on F.Cu - B.Cu
+    @(114,8000 mm, 88,6000 mm): Via [I2S2_LRCLK] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1907 mm)
+    Rule: board setup constraints hole; error
+    @(114,4000 mm, 89,0000 mm): Via [I2S2_BCLK] on F.Cu - B.Cu
+    @(114,8000 mm, 88,6000 mm): Via [I2S2_LRCLK] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1115 mm)
+    Local override; error
+    @(161,4000 mm, 79,6000 mm): Track [/XMOS/RST_N] on B.Cu, length 11,2000 mm
+    @(161,8000 mm, 77,7000 mm): Via [GND] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1865 mm)
+    Rule: board setup constraints hole; error
+    @(161,4000 mm, 79,6000 mm): Track [/XMOS/RST_N] on B.Cu, length 11,2000 mm
+    @(161,8000 mm, 77,7000 mm): Via [GND] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,0885 mm)
+    Local override; error
+    @(139,7000 mm, 75,5000 mm): Via [I2S2_BCLK] on F.Cu - B.Cu
+    @(139,5000 mm, 75,0000 mm): Via [I2S2_LRCLK] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1635 mm)
+    Rule: board setup constraints hole; error
+    @(139,7000 mm, 75,5000 mm): Via [I2S2_BCLK] on F.Cu - B.Cu
+    @(139,5000 mm, 75,0000 mm): Via [I2S2_LRCLK] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,0885 mm)
+    Local override; error
+    @(139,7000 mm, 75,5000 mm): Via [I2S2_BCLK] on F.Cu - B.Cu
+    @(139,5000 mm, 75,0000 mm): Via [I2S2_LRCLK] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1635 mm)
+    Rule: board setup constraints hole; error
+    @(139,7000 mm, 75,5000 mm): Via [I2S2_BCLK] on F.Cu - B.Cu
+    @(139,5000 mm, 75,0000 mm): Via [I2S2_LRCLK] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,0885 mm)
+    Local override; error
+    @(139,7000 mm, 75,5000 mm): Via [I2S2_BCLK] on F.Cu - B.Cu
+    @(139,5000 mm, 75,0000 mm): Via [I2S2_LRCLK] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1635 mm)
+    Rule: board setup constraints hole; error
+    @(139,7000 mm, 75,5000 mm): Via [I2S2_BCLK] on F.Cu - B.Cu
+    @(139,5000 mm, 75,0000 mm): Via [I2S2_LRCLK] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,0885 mm)
+    Local override; error
+    @(139,7000 mm, 75,5000 mm): Via [I2S2_BCLK] on F.Cu - B.Cu
+    @(139,5000 mm, 75,0000 mm): Via [I2S2_LRCLK] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1635 mm)
+    Rule: board setup constraints hole; error
+    @(139,7000 mm, 75,5000 mm): Via [I2S2_BCLK] on F.Cu - B.Cu
+    @(139,5000 mm, 75,0000 mm): Via [I2S2_LRCLK] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1115 mm)
+    Local override; error
+    @(110,4000 mm, 80,2000 mm): Via [Net-(U6-GPIO4)] on F.Cu - B.Cu
+    @(112,2200 mm, 79,8000 mm): Track [Net-(U6-GPIO3)] on F.Cu, length 2,3200 mm
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1865 mm)
+    Rule: board setup constraints hole; error
+    @(112,2200 mm, 79,8000 mm): Track [Net-(U6-GPIO3)] on F.Cu, length 2,3200 mm
+    @(110,4000 mm, 80,2000 mm): Via [Net-(U6-GPIO4)] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1115 mm)
+    Local override; error
+    @(114,2000 mm, 89,8000 mm): Track [Net-(U6-XTAL_32K_P)] on F.Cu, length 1,0900 mm
+    @(113,8000 mm, 89,4000 mm): Via [I2S2_MCLK] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1865 mm)
+    Rule: board setup constraints hole; error
+    @(114,2000 mm, 89,8000 mm): Track [Net-(U6-XTAL_32K_P)] on F.Cu, length 1,0900 mm
+    @(113,8000 mm, 89,4000 mm): Via [I2S2_MCLK] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1115 mm)
+    Local override; error
+    @(110,0000 mm, 80,3000 mm): Track [Net-(U6-GPIO4)] on B.Cu, length 0,6000 mm
+    @(109,8000 mm, 79,9000 mm): Via [Net-(U6-GPIO3)] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1865 mm)
+    Rule: board setup constraints hole; error
+    @(110,0000 mm, 80,3000 mm): Track [Net-(U6-GPIO4)] on B.Cu, length 0,6000 mm
+    @(109,8000 mm, 79,9000 mm): Via [Net-(U6-GPIO3)] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1115 mm)
+    Local override; error
+    @(134,6000 mm, 58,5000 mm): Via [GND] on F.Cu - B.Cu
+    @(127,6000 mm, 58,9000 mm): Track [ESP_IO40] on F.Cu, length 12,5000 mm
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1865 mm)
+    Rule: board setup constraints hole; error
+    @(127,6000 mm, 58,9000 mm): Track [ESP_IO40] on F.Cu, length 12,5000 mm
+    @(134,6000 mm, 58,5000 mm): Via [GND] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1190 mm)
+    Local override; error
+    @(143,2000 mm, 80,3000 mm): Via [/XMOS/TDO] on F.Cu - B.Cu
+    @(142,8067 mm, 77,5834 mm): Track [/XMOS/TDI] on F.Cu, length 2,6099 mm
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1940 mm)
+    Rule: board setup constraints hole; error
+    @(142,8067 mm, 77,5834 mm): Track [/XMOS/TDI] on F.Cu, length 2,6099 mm
+    @(143,2000 mm, 80,3000 mm): Via [/XMOS/TDO] on F.Cu - B.Cu
+[clearance]: Clearance violation (board minimum clearance 0,1270 mm; actual 0,1190 mm)
+    Local override; error
+    @(143,2000 mm, 80,3000 mm): Via [/XMOS/TDO] on F.Cu - B.Cu
+    @(142,8067 mm, 80,1933 mm): Track [/XMOS/TDI] on F.Cu, length 0,4338 mm
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1940 mm)
+    Rule: board setup constraints hole; error
+    @(142,8067 mm, 80,1933 mm): Track [/XMOS/TDI] on F.Cu, length 0,4338 mm
+    @(143,2000 mm, 80,3000 mm): Via [/XMOS/TDO] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1900 mm)
+    Rule: board setup constraints hole; error
+    @(136,5200 mm, 80,5000 mm): Pad 1 [Net-(C44-Pad1)] of C44 on F.Cu
+    @(135,9000 mm, 80,4000 mm): Via [/XMOS/VBUS_DETEC] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1772 mm)
+    Rule: board setup constraints hole; error
+    @(115,1000 mm, 75,9200 mm): Pad 1 [GND] of C30 on B.Cu
+    @(115,0935 mm, 75,3128 mm): Via [XU316_RST] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1965 mm)
+    Rule: board setup constraints hole; error
+    @(145,4650 mm, 78,3000 mm): Pad 1 [Net-(U8-PLL_AVDD)] of FB3 on B.Cu
+    @(145,2006 mm, 79,1315 mm): Via [/XMOS/TCK] on F.Cu - B.Cu
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error (excluded)
+    @(154,1139 mm, 74,7993 mm): Footprint J4
+    @(159,4750 mm, 67,1600 mm): Footprint J3
+    TPs only
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0,2540 mm; actual 0,2510 mm)
+    Rule: board setup constraints edge; error
+    @(102,9000 mm, 89,0886 mm): Arc on Edge.Cuts
+    @(100,4000 mm, 88,0000 mm): Via [GND] on F.Cu - B.Cu
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0,2540 mm; actual 0,0783 mm)
+    Rule: board setup constraints edge; error (excluded)
+    @(102,9000 mm, 89,0886 mm): Circle on Edge.Cuts
+    @(103,5709 mm, 89,0922 mm): Pad 3_1 [GND] of MK1 on F.Cu
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0,2540 mm; actual 0,0723 mm)
+    Rule: board setup constraints edge; error (excluded)
+    @(102,9000 mm, 89,0886 mm): Circle on Edge.Cuts
+    @(102,2459 mm, 89,0922 mm): Pad 3_2 [GND] of MK1 on F.Cu
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0,2540 mm; actual 0,0743 mm)
+    Rule: board setup constraints edge; error (excluded)
+    @(168,9000 mm, 89,0886 mm): Circle on Edge.Cuts
+    @(168,2446 mm, 89,0873 mm): Pad 3_1 [GND] of MK2 on F.Cu
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0,2540 mm; actual 0,0806 mm)
+    Rule: board setup constraints edge; error (excluded)
+    @(168,9000 mm, 89,0886 mm): Circle on Edge.Cuts
+    @(169,5696 mm, 89,0873 mm): Pad 3_2 [GND] of MK2 on F.Cu
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0,2540 mm; actual 0,0018 mm)
+    Rule: board setup constraints edge; error (excluded)
+    @(123,7714 mm, 87,2560 mm): Segment on Edge.Cuts
+    @(124,5259 mm, 86,3542 mm): Pad 1 [+5V] of LED1 on F.Cu
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0,2540 mm; actual 0,0018 mm)
+    Rule: board setup constraints edge; error (excluded)
+    @(123,7714 mm, 87,2560 mm): Segment on Edge.Cuts
+    @(126,0259 mm, 86,3542 mm): Pad 2 [Net-(LED1-DOUT)] of LED1 on F.Cu
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0,2540 mm; actual 0,0000 mm)
+    Rule: board setup constraints edge; error (excluded)
+    @(126,7714 mm, 90,6560 mm): Segment on Edge.Cuts
+    @(126,0259 mm, 91,5542 mm): Pad 3 [GND] of LED1 on F.Cu
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0,2540 mm; actual 0,0000 mm)
+    Rule: board setup constraints edge; error (excluded)
+    @(126,7714 mm, 90,6560 mm): Segment on Edge.Cuts
+    @(124,5259 mm, 91,5542 mm): Pad 4 [ESP_WS2812] of LED1 on F.Cu
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0,2540 mm; actual 0,0079 mm)
+    Rule: board setup constraints edge; error (excluded)
+    @(137,7154 mm, 87,2560 mm): Segment on Edge.Cuts
+    @(138,4771 mm, 86,3481 mm): Pad 1 [+5V] of LED3 on F.Cu
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0,2540 mm; actual 0,0079 mm)
+    Rule: board setup constraints edge; error (excluded)
+    @(137,7154 mm, 87,2560 mm): Segment on Edge.Cuts
+    @(139,9771 mm, 86,3481 mm): Pad 2 [Net-(LED3-DOUT)] of LED3 on F.Cu
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0,2540 mm; actual 0,0000 mm)
+    Rule: board setup constraints edge; error (excluded)
+    @(140,7154 mm, 90,6560 mm): Segment on Edge.Cuts
+    @(139,9771 mm, 91,5481 mm): Pad 3 [GND] of LED3 on F.Cu
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0,2540 mm; actual 0,0000 mm)
+    Rule: board setup constraints edge; error (excluded)
+    @(140,7154 mm, 90,6560 mm): Segment on Edge.Cuts
+    @(138,4771 mm, 91,5481 mm): Pad 4 [Net-(LED2-DOUT)] of LED3 on F.Cu
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0,2540 mm; actual 0,0000 mm)
+    Rule: board setup constraints edge; error (excluded)
+    @(144,6494 mm, 87,2560 mm): Segment on Edge.Cuts
+    @(145,3935 mm, 86,3662 mm): Pad 1 [+5V] of LED4 on F.Cu
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0,2540 mm; actual 0,0000 mm)
+    Rule: board setup constraints edge; error (excluded)
+    @(144,6494 mm, 87,2560 mm): Segment on Edge.Cuts
+    @(146,8935 mm, 86,3662 mm): Pad 2 [unconnected-(LED4-DOUT-Pad2)] of LED4 on F.Cu
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0,2540 mm; actual 0,0000 mm)
+    Rule: board setup constraints edge; error (excluded)
+    @(147,6435 mm, 90,6662 mm): Segment of LED4 on Edge.Cuts
+    @(146,8935 mm, 91,5662 mm): Pad 3 [GND] of LED4 on F.Cu
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0,2540 mm; actual 0,0000 mm)
+    Rule: board setup constraints edge; error (excluded)
+    @(147,6435 mm, 90,6662 mm): Segment of LED4 on Edge.Cuts
+    @(145,3935 mm, 91,5662 mm): Pad 4 [Net-(LED3-DOUT)] of LED4 on F.Cu
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0,2540 mm; actual 0,0000 mm)
+    Rule: board setup constraints edge; error (excluded)
+    @(130,7304 mm, 87,2560 mm): Segment on Edge.Cuts
+    @(131,4885 mm, 86,3722 mm): Pad 1 [+5V] of LED2 on F.Cu
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0,2540 mm; actual 0,0000 mm)
+    Rule: board setup constraints edge; error (excluded)
+    @(130,7304 mm, 87,2560 mm): Segment on Edge.Cuts
+    @(132,9885 mm, 86,3722 mm): Pad 2 [Net-(LED2-DOUT)] of LED2 on F.Cu
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0,2540 mm; actual 0,0000 mm)
+    Rule: board setup constraints edge; error (excluded)
+    @(133,7385 mm, 90,6722 mm): Segment of LED2 on Edge.Cuts
+    @(132,9885 mm, 91,5722 mm): Pad 3 [GND] of LED2 on F.Cu
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0,2540 mm; actual 0,0000 mm)
+    Rule: board setup constraints edge; error (excluded)
+    @(133,7385 mm, 90,6722 mm): Segment of LED2 on Edge.Cuts
+    @(131,4885 mm, 91,5722 mm): Pad 4 [Net-(LED1-DOUT)] of LED2 on F.Cu
+[hole_to_hole]: Drilled hole too close to other hole (board setup constraints min 0,1265 mm; actual 0,1000 mm)
+    Rule: board setup constraints; warning
+    @(154,9000 mm, 79,7000 mm): Via [VDD] on F.Cu - B.Cu
+    @(154,9000 mm, 79,3000 mm): Via [VDD] on F.Cu - B.Cu
+
+** Found 0 unconnected pads **
+
+** Found 0 Footprint errors **
+
+** End of Report **
