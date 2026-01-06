@@ -1179,6 +1179,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC part #" ""
+			(at 102.87 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer part #" ""
+			(at 102.87 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "7ef770f0-2c65-40b1-97a4-88096c4ada92")
 		)
@@ -1489,6 +1507,24 @@
 			)
 		)
 		(property "Manufacturer Part Number" ""
+			(at 85.09 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC part #" ""
+			(at 85.09 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer part #" ""
 			(at 85.09 76.2 0)
 			(effects
 				(font
@@ -1821,6 +1857,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC part #" ""
+			(at 125.73 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer part #" ""
+			(at 125.73 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "ed3d6c0f-6cc2-4f65-bcf7-5679f86f25c2")
 		)
@@ -2079,6 +2133,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC part #" ""
+			(at 165.1 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer part #" ""
+			(at 165.1 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "bfda5f8c-08c7-4d77-8940-b781ff843724")
 		)
@@ -2225,6 +2297,24 @@
 			)
 		)
 		(property "Manufacturer Part Number" ""
+			(at 222.25 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC part #" ""
+			(at 222.25 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer part #" ""
 			(at 222.25 76.2 0)
 			(effects
 				(font
@@ -2551,6 +2641,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC part #" ""
+			(at 204.47 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer part #" ""
+			(at 204.47 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "4ef77a0f-1d91-481d-ba72-b255fccb61e2")
 		)
@@ -2763,6 +2871,24 @@
 			)
 		)
 		(property "Manufacturer Part Number" ""
+			(at 143.51 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC part #" ""
+			(at 143.51 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer part #" ""
 			(at 143.51 76.2 0)
 			(effects
 				(font
@@ -3043,6 +3169,24 @@
 			)
 		)
 		(property "Manufacturer Part Number" ""
+			(at 182.88 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC part #" ""
+			(at 182.88 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer part #" ""
 			(at 182.88 76.2 0)
 			(effects
 				(font
