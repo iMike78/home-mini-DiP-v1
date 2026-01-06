@@ -1,8 +1,3 @@
-Finally, [you can order](https://www.pcbway.com/project/shareproject/W659778AS1M15_MiciMike_Google_Home_mini_drop_in_PCB_97e52f8d.html) the PCB from PCBWay. Please read through the full description, as there is some important information, especially at the bottom.
-Any questions about the PCB order procedure ask [here](https://github.com/iMike78/home-mini-v1-drop-in-pcb/discussions/8).
-An extra component is required for anyone who wants to install this PCB: a [50mm reverse type 0.5mm pitch 16 pole FPC cable](https://www.aliexpress.com/item/1005004299162329.html?spm=a2g0o.order_list.order_list_main.11.fc2f1802jZp464). I chose this solution instead of desoldering the original FPC cable from the old board and soldering it onto the new one (the FPC soldering process is not easy). Therefore, I decided to replace the old cable with one that can be connected to FPC connectors on both sides.
-
-
 # MiciMike drop-in PCB replacement for Google Home Mini (Gen-1)
 
 [MiciMike Home Mini](https://github.com/iMike78/home-mini-v1-drop-in-pcb) is a drop-in PCB replacement for the ["Google Home Mini" (Google's first-generation smart speaker hardware with a Micro-USB charging port)](https://en.wikipedia.org/wiki/Google_Nest_(smart_speakers)), but based on ESP32 and XMOS microcontrollers for running open-source firmware.
