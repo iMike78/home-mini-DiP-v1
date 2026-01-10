@@ -25,29 +25,42 @@ substitutions:
   center_button_double_press_sound_file: https://github.com/esphome/home-assistant-voice-pe/raw/dev/sounds/center_button_double_press.flac
   center_button_triple_press_sound_file: https://github.com/esphome/home-assistant-voice-pe/raw/dev/sounds/center_button_triple_press.flac
   center_button_long_press_sound_file: https://github.com/esphome/home-assistant-voice-pe/raw/dev/sounds/center_button_long_press.flac
+  factory_reset_initiated_sound_file: https://github.com/esphome/home-assistant-voice-pe/raw/dev/sounds/factory_reset_initiated.mp3
+  factory_reset_cancelled_sound_file: https://github.com/esphome/home-assistant-voice-pe/raw/dev/sounds/factory_reset_cancelled.mp3
+  factory_reset_confirmed_sound_file: https://github.com/esphome/home-assistant-voice-pe/raw/dev/sounds/factory_reset_confirmed.mp3
+  easter_egg_tick_sound_file: https://github.com/esphome/home-assistant-voice-pe/raw/dev/sounds/easter_egg_tick.mp3
+  easter_egg_tada_sound_file: https://github.com/esphome/home-assistant-voice-pe/raw/dev/sounds/easter_egg_tada.mp3
+  error_cloud_expired_sound_file: https://github.com/esphome/home-assistant-voice-pe/raw/dev/sounds/error_cloud_expired.mp3
   name: micimike
-  friendly_name: MiciMike
+  friendly_name: MiciMike voice assistant
 
 esphome:
   name: "${name}"
   friendly_name: "${friendly_name}"
+  project: 
+    name: ildevices.micimike
+    version: v0.9.0
   name_add_mac_suffix: true
   min_version: 2025.11.0
   on_boot:
-    priority: 375
-    then:
-      # Run the script to refresh the LED status
-      - script.execute: control_leds
-      - delay: 1s
-      - switch.turn_on: internal_speaker_amp
-      # If after 10 minutes, the device is still initializing (It did not yet connect to Home Assistant), turn off the init_in_progress variable and run the script to refresh the LED status
-      - delay: 10min
-      - if:
-          condition:
-            lambda: return id(init_in_progress);
-          then:
-            - lambda: id(init_in_progress) = false;
-            - script.execute: control_leds
+    - priority: 375
+      then:
+        # Run the script to refresh the LED status
+        - script.execute: control_leds
+        - delay: 1s
+        - switch.turn_on: internal_speaker_amp
+        # If after 10 minutes, the device is still initializing (It did not yet connect to Home Assistant), turn off the init_in_progress variable and run the script to refresh the LED status
+        - delay: 10min
+        - if:
+            condition:
+              lambda: return id(init_in_progress);
+            then:
+              - lambda: id(init_in_progress) = false;
+              - script.execute: control_leds
+
+dashboard_import:
+  package_import_url: github://iMike78/home-mini-DiP-v1/esphome/micimike-factory.yml@main
+  import_full_config: true
 
 esp32:
   board: esp32-s3-devkitc-1
@@ -76,23 +89,18 @@ esp32:
 
 wifi:
   id: wifi_id
-  ssid: !secret ssid
-  password: !secret wifi_pass
   output_power: 8.5dB
   power_save_mode: none
   reboot_timeout: 10min
-  fast_connect: ${hidden_ssid}
+  ap:
+    ssid: "${friendly_name} Setup"
+    password: "12345678"
   on_connect:
-    - lambda: id(improv_ble_in_progress) = false;
     - script.execute: control_leds
   on_disconnect:
     - script.execute: control_leds
 
-network:
-  enable_ipv6: true
-
-logger:
-  level: DEBUG
+captive_portal:
 
 api:
   id: api_id
@@ -100,24 +108,33 @@ api:
     - script.execute: control_leds
   on_client_disconnected:
     - script.execute: control_leds
-  encryption:
-    key: !secret api_key
   reboot_timeout: 10min
 
 ota:
   - platform: esphome
     id: ota_esphome
 
+logger:
+  level: DEBUG
+  logs:
+    touch: DEBUG
+
 i2c:
   - id: internal_i2c
     sda: GPIO5
     scl: GPIO6
     frequency: 400kHz
+    scan: true
+
+i2c_device:
+  - id: aic3204_raw
+    address: 0x18
+    i2c_id: internal_i2c
 
 psram:
   mode: octal
   speed: 80MHz
-  ignore_not_found: false
+  ignore_not_found: false  # The VPE has PSRAM, so this is safe. Allows configuring WiFi driver to use more resources (done automatically by the speaker media player)
 
 globals:
   # Global index for our LEDs. So that switching between different animation does not lead to unwanted effects.
@@ -140,8 +157,12 @@ globals:
     type: int
     restore_value: no
     initial_value: ${voice_assist_not_ready_phase_id}
-  # Global variable tracking if the dial was recently touched.
   - id: color_changed
+    type: bool
+    restore_value: no
+    initial_value: 'false'
+  # Global variable tracking if the group media player volume was recent changed.
+  - id: group_volume_changed
     type: bool
     restore_value: no
     initial_value: 'false'
@@ -154,6 +175,11 @@ globals:
     restore_value: false
   # Global variable storing if a factory reset was requested. If it is set to true, the device will factory reset once the center button is released
   - id: factory_reset_requested
+    type: bool
+    restore_value: no
+    initial_value: 'false'
+  # Global variable tracking if the dial was recently touched.
+  - id: dial_touched
     type: bool
     restore_value: no
     initial_value: 'false'
@@ -211,8 +237,10 @@ switch:
       - if:
           condition:
             media_player.is_announcing:
+              id: external_media_player
           then:
             media_player.stop:
+              id: external_media_player
               announcement: true
       # Set back ducking ratio to zero
       - mixer_speaker.apply_ducking:
@@ -241,12 +269,12 @@ switch:
     id: internal_speaker_amp
     name: "Internal speaker amp"
     entity_category: config
-    restore_mode: ALWAYS_ON
+    restore_mode: ALWAYS_OFF
     internal: false
   - platform: template
     name: "DAC Hard Mute"
     id: aic3204_dac_mute_switch
-    optimistic: true
+    optimistic: true 
     turn_on_action:
       - lambda: |-
           bool ok = true;
@@ -295,12 +323,12 @@ binary_sensor:
             - script.execute:
                 id: play_sound
                 priority: false
-                sound_file: !lambda return id(mute_switch_on_sound);
+                sound_file: mute_switch_on_sound
     on_release:
       - script.execute:
           id: play_sound
           priority: false
-          sound_file: !lambda return id(mute_switch_off_sound);
+          sound_file: mute_switch_off_sound
       - microphone.unmute:
 
   - platform: esp32_touch
@@ -315,6 +343,15 @@ binary_sensor:
             - script.execute:
                 id: control_volume
                 increase_volume: true
+          else:
+            - if:
+                condition:
+                  media_player.is_playing:
+                    id: sendspin_group_media_player
+                then:
+                  - script.execute:
+                      id: control_group_volume
+                      increase_volume: true
 
   - platform: esp32_touch
     id: center_button
@@ -361,15 +398,19 @@ binary_sensor:
                             - if:
                                 condition:
                                   media_player.is_announcing:
+                                    id: external_media_player
                                 then:
                                   media_player.stop:
+                                    id: external_media_player
                                     announcement: true
                                 else:
                                   - if:
                                       condition:
                                         media_player.is_playing:
+                                          id: external_media_player
                                       then:
                                         - media_player.pause:
+                                            id: external_media_player
                                       else:
                                         - if:
                                             condition:
@@ -381,7 +422,7 @@ binary_sensor:
                                               - script.execute:
                                                   id: play_sound
                                                   priority: true
-                                                  sound_file: !lambda return id(center_button_press_sound);
+                                                  sound_file: center_button_press_sound
                                               - delay: 300ms
                                               - voice_assistant.start:
       # Double Click
@@ -399,7 +440,7 @@ binary_sensor:
                 - script.execute:
                     id: play_sound
                     priority: false
-                    sound_file: !lambda return id(center_button_double_press_sound);
+                    sound_file: center_button_double_press_sound
                 - event.trigger:
                     id: button_press_event
                     event_type: "double_press"
@@ -420,7 +461,7 @@ binary_sensor:
                 - script.execute:
                     id: play_sound
                     priority: false
-                    sound_file: !lambda return id(center_button_triple_press_sound);
+                    sound_file: center_button_triple_press_sound
                 - event.trigger:
                     id: button_press_event
                     event_type: "triple_press"
@@ -436,7 +477,7 @@ binary_sensor:
                 - script.execute:
                     id: play_sound
                     priority: false
-                    sound_file: !lambda return id(center_button_long_press_sound);
+                    sound_file: center_button_long_press_sound
                 - light.turn_off: voice_assistant_leds
                 - event.trigger:
                     id: button_press_event
@@ -468,13 +509,13 @@ binary_sensor:
                 - script.execute:
                     id: play_sound
                     priority: true
-                    sound_file: !lambda return id(easter_egg_tick_sound);
+                    sound_file: easter_egg_tick_sound
                 - delay: 4s
                 - light.turn_off: voice_assistant_leds
                 - script.execute:
                     id: play_sound
                     priority: true
-                    sound_file: !lambda return id(easter_egg_tada_sound);
+                    sound_file: easter_egg_tada_sound
                 - light.turn_on:
                     brightness: 100%
                     id: voice_assistant_leds
@@ -494,7 +535,7 @@ binary_sensor:
                 - script.execute:
                     id: play_sound
                     priority: true
-                    sound_file: !lambda return id(factory_reset_initiated_sound);
+                    sound_file: factory_reset_initiated_sound
                 - wait_until:
                     binary_sensor.is_off: center_button
                 - if:
@@ -505,7 +546,7 @@ binary_sensor:
                       - script.execute:
                           id: play_sound
                           priority: true
-                          sound_file: !lambda return id(factory_reset_cancelled_sound);
+                          sound_file: factory_reset_cancelled_sound
       # Factory Reset Confirmed.
       #  . Audible warning to prompt user to release the button
       #  . Set factory_reset_requested to true
@@ -515,7 +556,7 @@ binary_sensor:
                 - script.execute:
                     id: play_sound
                     priority: true
-                    sound_file: !lambda return id(factory_reset_confirmed_sound);
+                    sound_file: factory_reset_confirmed_sound
                 - light.turn_on:
                     brightness: 100%
                     red: 100%
@@ -537,9 +578,18 @@ binary_sensor:
             - script.execute:
                 id: control_volume
                 increase_volume: false
-
+          else:
+            - if:
+                condition:
+                  media_player.is_playing:
+                    id: sendspin_group_media_player
+                then:
+                  - script.execute:
+                      id: control_group_volume
+                      increase_volume: false
 
 light:
+  # Hardware LED ring. Not used because remapping needed
   - platform: esp32_rmt_led_strip
     id: leds_internal
     pin: GPIO21
@@ -969,6 +1019,8 @@ script:
             id(control_leds_init_state).execute();
           } else if (!id(wifi_id).is_connected() || !id(api_id).is_connected()){
             id(control_leds_no_ha_connection_state).execute();
+          } else if (id(center_button).state) {
+            id(control_leds_center_button_touched).execute();
           } else if (id(timer_ringing).state) {
             id(control_leds_timer_ringing).execute();
           } else if (id(voice_assistant_phase) == ${voice_assist_waiting_for_command_phase_id}) {
@@ -999,7 +1051,7 @@ script:
     then:
       - light.turn_on:
           brightness: 40%
-          red: 100%
+          red: 0%
           green: 0%
           blue: 0%
           id: voice_assistant_leds
@@ -1132,8 +1184,8 @@ script:
           id: voice_assistant_leds
           effect: "Twinkle"
 
-  # Script executed when the dial is touched
-  # A number of LEDs turn on indicating a visual representation of the volume of the media player entity.
+  # Script executed when the center button is touched
+  # The complete LED ring turns on
   - id: control_leds_center_button_touched
     then:
       - light.turn_on:
@@ -1171,10 +1223,37 @@ script:
             lambda: return increase_volume;
           then:
             - media_player.volume_up:
+                id: external_media_player
           else:
             - media_player.volume_down:
+                id: external_media_player
       - script.execute: control_leds
       - delay: 1s
+      - lambda: id(dial_touched) = false;
+      - script.execute: control_leds
+
+  # Script executed when the volume is increased/decreased from the dial for the group media player
+  - id: control_group_volume
+    mode: restart
+    parameters:
+      increase_volume: bool  # True: Increase volume / False: Decrease volume.
+    then:
+      - delay: 16ms
+      - if:
+          condition:
+            lambda: return increase_volume;
+          then:
+            - lambda: id(group_volume_changed) = true;
+            - media_player.volume_up:
+                id: sendspin_group_media_player
+          else:
+            - lambda: id(group_volume_changed) = true;
+            - media_player.volume_down:
+                id: sendspin_group_media_player
+      - script.execute: control_leds
+      - delay: 1s
+      - lambda: id(dial_touched) = false;
+      - lambda: id(group_volume_changed) = false;
       - script.execute: control_leds
 
   - id: ring_timer
@@ -1183,49 +1262,48 @@ script:
       - script.execute:
           id: play_sound
           priority: true
-          sound_file: !lambda return id(timer_finished_sound);
+          sound_file: "timer_finished_sound"
 
   # Script executed when the timer is ringing, to repeat the timer finished sound.
   - id: enable_repeat_one
     then:
+      - media_player.repeat_one:
+          id: external_media_player
+          announcement: true
       # Turn on the repeat mode and pause for 500 ms between playlist items/repeats
       - lambda: |-
-            id(external_media_player)
-              ->make_call()
-              .set_command(media_player::MediaPlayerCommand::MEDIA_PLAYER_COMMAND_REPEAT_ONE)
-              .set_announcement(true)
-              .perform();
-            id(external_media_player)->set_playlist_delay_ms(speaker::AudioPipelineType::ANNOUNCEMENT, 500);
+            id(external_media_player)->set_playlist_delay_ms(1, 500);
 
   # Script execute when the timer is done ringing, to disable repeat mode.
   - id: disable_repeat
     then:
       # Turn off the repeat mode and pause for 0 ms between playlist items/repeats
+      - media_player.repeat_off:
+          id: external_media_player
+          announcement: true
       - lambda: |-
-            id(external_media_player)
-              ->make_call()
-              .set_command(media_player::MediaPlayerCommand::MEDIA_PLAYER_COMMAND_REPEAT_OFF)
-              .set_announcement(true)
-              .perform();
-            id(external_media_player)->set_playlist_delay_ms(speaker::AudioPipelineType::ANNOUNCEMENT, 0);
+            id(external_media_player)->set_playlist_delay_ms(1, 0);
 
   # Script executed when we want to play sounds on the device.
   - id: play_sound
     parameters:
       priority: bool
-      sound_file: "audio::AudioFile*"
+      sound_file: string
     then:
+      - if:
+          condition:
+            lambda: return priority;
+          then:
+            - media_player.stop:
+                id: external_media_player
+                announcement: true
       - lambda: |-
-          if (priority) {
-            id(external_media_player)
-              ->make_call()
-              .set_command(media_player::MediaPlayerCommand::MEDIA_PLAYER_COMMAND_STOP)
-              .set_announcement(true)
-              .perform();
-          }
           if ( (id(external_media_player).state != media_player::MediaPlayerState::MEDIA_PLAYER_STATE_ANNOUNCING ) || priority) {
             id(external_media_player)
-              ->play_file(sound_file, true, false);
+              ->make_call()
+              .set_media_url("file://" + sound_file)
+              .set_announcement(true)
+              .perform();
           }
 
   # Script used to fetch the first active timer (Stored in global first_active_timer)
@@ -1272,6 +1350,7 @@ script:
             - wait_until:
                 not:
                   media_player.is_announcing:
+                    id: external_media_player
             - if:
                 condition:
                   switch.is_off: timer_ringing
@@ -1343,24 +1422,74 @@ speaker:
     sample_rate: 48000
     bits_per_sample: 16
 
+sendspin:
+  id: sendspin_hub
+  task_stack_in_psram: true
+  kalman_process_error: 0.01
+
+http_request:
+
+media_source:
+  - platform: sendspin
+    id: sendspin_source
+  - platform: http_request
+    id: http_source
+    buffer_size: 500000
+  - platform: file
+    id: file_source
+    files:
+      - id: center_button_press_sound
+        file: ${center_button_press_sound_file}
+      - id: center_button_double_press_sound
+        file: ${center_button_double_press_sound_file}
+      - id: center_button_triple_press_sound
+        file: ${center_button_triple_press_sound_file}
+      - id: center_button_long_press_sound
+        file: ${center_button_long_press_sound_file}
+      - id: factory_reset_initiated_sound
+        file: ${factory_reset_initiated_sound_file}
+      - id: factory_reset_cancelled_sound
+        file: ${factory_reset_cancelled_sound_file}
+      - id: factory_reset_confirmed_sound
+        file: ${factory_reset_confirmed_sound_file}
+      - id: mute_switch_on_sound
+        file: ${mute_switch_on_sound_file}
+      - id: mute_switch_off_sound
+        file: ${mute_switch_off_sound_file}
+      - id: timer_finished_sound
+        file: ${timer_finished_sound_file}
+      - id: wake_word_triggered_sound
+        file: ${wake_word_triggered_sound_file}
+      - id: easter_egg_tick_sound
+        file: ${easter_egg_tick_sound_file}
+      - id: easter_egg_tada_sound
+        file: ${easter_egg_tada_sound_file}
+      - id: error_cloud_expired
+        file: ${error_cloud_expired_sound_file}
+
 media_player:
-  - platform: speaker
+  - platform: sendspin
+    id: sendspin_group_media_player
+  - platform: speaker_source
     id: external_media_player
     name: Media Player
-    internal: False
-    volume_increment: 0.05
-    volume_min: 0.4
-    volume_max: 0.85
+    announcement_speaker: announcement_resampling_speaker
+    media_speaker: media_resampling_speaker
     announcement_pipeline:
-      speaker: announcement_resampling_speaker
       format: FLAC     # FLAC is the least processor intensive codec
       num_channels: 1  # Stereo audio is unnecessary for announcements
       sample_rate: 48000
     media_pipeline:
-      speaker: media_resampling_speaker
       format: FLAC     # FLAC is the least processor intensive codec
       num_channels: 2
       sample_rate: 48000
+    volume_increment: 0.05
+    volume_min: 0.2
+    volume_max: 0.9
+    sources:
+      - file_source
+      - http_source
+      - sendspin_source
     on_mute:
       - script.execute: control_leds
     on_unmute:
@@ -1380,50 +1509,17 @@ media_player:
             - not:
                 voice_assistant.is_running:
             - not:
-                media_player.is_announcing:
+                media_player.is_announcing: external_media_player
         then:
           - mixer_speaker.apply_ducking:
               id: media_mixing_input
               decibel_reduction: 0
               duration: 1.0s
-    files:
-      - id: center_button_press_sound
-        file: ${center_button_press_sound_file}
-      - id: center_button_double_press_sound
-        file: ${center_button_double_press_sound_file}
-      - id: center_button_triple_press_sound
-        file: ${center_button_triple_press_sound_file}
-      - id: center_button_long_press_sound
-        file: ${center_button_long_press_sound_file}
-      - id: factory_reset_initiated_sound
-        file: https://github.com/esphome/home-assistant-voice-pe/raw/dev/sounds/factory_reset_initiated.mp3
-      - id: factory_reset_cancelled_sound
-        file: https://github.com/esphome/home-assistant-voice-pe/raw/dev/sounds/factory_reset_cancelled.mp3
-      - id: factory_reset_confirmed_sound
-        file: https://github.com/esphome/home-assistant-voice-pe/raw/dev/sounds/factory_reset_confirmed.mp3
-      - id: mute_switch_on_sound
-        file: ${mute_switch_on_sound_file}
-      - id: mute_switch_off_sound
-        file: ${mute_switch_off_sound_file}
-      - id: timer_finished_sound
-        file: ${timer_finished_sound_file}
-      - id: wake_word_triggered_sound
-        file: ${wake_word_triggered_sound_file}
-      - id: easter_egg_tick_sound
-        file: https://github.com/esphome/home-assistant-voice-pe/raw/dev/sounds/easter_egg_tick.mp3
-      - id: easter_egg_tada_sound
-        file: https://github.com/esphome/home-assistant-voice-pe/raw/dev/sounds/easter_egg_tada.mp3
-      - id: error_cloud_expired
-        file: https://github.com/esphome/home-assistant-voice-pe/raw/dev/sounds/error_cloud_expired.mp3
 
 voice_kit:
   id: voice_kit_component
   i2c_id: internal_i2c
   reset_pin: GPIO45
-  firmware:
-    url: https://github.com/esphome/voice-kit-xmos-firmware/releases/download/v1.3.1/ffva_v1.3.1_upgrade.bin
-    version: "1.3.1"
-    md5: 964635c5bf125529dab14a2472a15401
 
 external_components:
   - source:
@@ -1433,6 +1529,35 @@ external_components:
     components:
       - voice_kit
     refresh: 0s
+  - source:
+      # https://github.com/esphome/esphome/pull/12253
+      type: git
+      url: https://github.com/esphome/esphome
+      ref: 0fe230114c80b6d3378f04c777baadee178e40ad
+    components: [mixer]
+  - source:
+      # https://github.com/esphome/esphome/pull/12254
+      type: git
+      url: https://github.com/esphome/esphome
+      ref: 1ab4b990092ae063a16cb1511a188c536fdb336e
+    components: [resampler]
+  - source:
+      # https://github.com/esphome/esphome/pull/12256
+      type: git
+      url: https://github.com/esphome/esphome
+      ref: 047ba60f01af84513f8d5aabaa2a53074facee8f
+    components: [audio]
+  - source:
+      # https://github.com/esphome/esphome/pull/12258
+      type: git
+      url: https://github.com/esphome/esphome
+      ref: bff22983a390352360796f8e1363127e0cd1f898
+    components: [media_player]
+  - source: github://pr#12429
+    components: [color_noise, file, http_request, media_source, speaker_source]
+  - source: github://pr#12284
+    components: [mdns, sendspin]
+    refresh: 1h
 
 audio_dac:
   - platform: aic3204
@@ -1483,8 +1608,10 @@ micro_wake_word:
                       - if:
                           condition:
                             media_player.is_announcing:
+                              id: external_media_player
                           then:
                             - media_player.stop:
+                                id: external_media_player
                                 announcement: true
                           # Start the voice assistant and play the wake sound, if enabled
                           else:
@@ -1495,7 +1622,7 @@ micro_wake_word:
                                   - script.execute:
                                       id: play_sound
                                       priority: true
-                                      sound_file: !lambda return id(wake_word_triggered_sound);
+                                      sound_file: wake_word_triggered_sound
                                   - delay: 300ms
                             - voice_assistant.start:
                                 wake_word: !lambda return wake_word;
@@ -1556,7 +1683,7 @@ select:
 
           ESP_LOGI("aic3204_eq", "Selecting EQ profile: %s", opt.c_str());
 
-          // --- 24 bit koeff write ---
+          // --- 24 bites koeff írás egy regiszter-hármasba ---
           auto write_coeff_24 = [&](uint8_t page, uint8_t reg, uint32_t val) -> bool {
             uint8_t b0 = (val >> 16) & 0xFF;  // MSB
             uint8_t b1 = (val >>  8) & 0xFF;
@@ -1570,7 +1697,7 @@ select:
             return ok;
           };
 
-          // --- One DAC biquad (A..E) to both channels ---
+          // --- Egy DAC biquad (A..E) mindkét csatornára ---
           // DAC Buffer A: Page 44 (Left), Page 45 (Right)
           // Left: baseL = 12 + 20*biq
           // Right: baseR = 20 + 20*biq  (datasheet Table 2-18)
@@ -1599,7 +1726,7 @@ select:
             return ok;
           };
 
-          // --- Common routine: 5 biquad profile + buffer switch ---
+          // --- Közös rutin: 5 biquados profil + buffer switch ---
           auto apply_profile = [&](
               uint32_t a_n0, uint32_t a_n1, uint32_t a_n2,
               uint32_t a_d1, uint32_t a_d2,
@@ -1614,18 +1741,18 @@ select:
           ) -> bool {
             bool ok2 = true;
 
-            // 1) Adaptive mode ON (P44_R1.D2=1, D0=0)
+            // 1) Adaptív mód bekapcsolása (P44_R1.D2=1, D0=0)
             ok2 &= dev->write_byte(0x00, 44);
             ok2 &= dev->read_byte(0x01, &cfg);
             cfg |= 0x04;   // D2 = 1 (adaptive on)
-            cfg &= ~0x01;  // D0 = 0 (dont't ask immediate change)
+            cfg &= ~0x01;  // D0 = 0 (ne kérjen azonnali váltást még)
             ok2 &= dev->write_byte(0x01, cfg);
             if (!ok2) {
               ESP_LOGE("aic3204_eq", "Failed to enable adaptive mode");
               return false;
             }
 
-            // 2) New coeffs into inactive buffer (chip select)
+            // 2) Új koeffek az inaktív bufferbe (chip intézi, melyik az)
             ok2 &= write_biquad(0, a_n0, a_n1, a_n2, a_d1, a_d2);  // BIQUAD A
             ok2 &= write_biquad(1, b_n0, b_n1, b_n2, b_d1, b_d2);  // BIQUAD B
             ok2 &= write_biquad(2, c_n0, c_n1, c_n2, c_d1, c_d2);  // BIQUAD C
@@ -1637,11 +1764,11 @@ select:
               return false;
             }
 
-            // 3) Buffer switch request (P44_R1.D0=1, D2 stays 1)
+            // 3) Buffer switch kérés (P44_R1.D0=1, D2 marad 1)
             ok2 &= dev->write_byte(0x00, 44);
             ok2 &= dev->read_byte(0x01, &cfg);
             cfg |= 0x04;   // D2 = 1
-            cfg |= 0x01;   // D0 = 1 → change at next frame
+            cfg |= 0x01;   // D0 = 1 → váltás a következő frame-nél
             ok2 &= dev->write_byte(0x01, cfg);
 
             return ok2;
@@ -2009,7 +2136,7 @@ voice_assistant:
           - script.execute:
               id: play_sound
               priority: true
-              sound_file: !lambda return id(error_cloud_expired);
+              sound_file: error_cloud_expired
   # When the voice assistant starts: Play a wake up sound, duck audio.
   on_start:
     - mixer_speaker.apply_ducking:
@@ -2090,3 +2217,19 @@ button:
 
 debug:
   update_interval: 5s
+
+sensor:
+  - platform: wifi_signal # Reports the WiFi signal strength/RSSI in dB
+    name: "WiFi Signal dB"
+    id: wifi_signal_db
+    update_interval: 60s
+    entity_category: "diagnostic"
+
+  - platform: copy # Reports the WiFi signal strength in %
+    source_id: wifi_signal_db
+    name: "WiFi Signal Percent"
+    filters:
+      - lambda: return min(max(2 * (x + 100.0), 0.0), 100.0);
+    unit_of_measurement: "%"
+    entity_category: "diagnostic"
+    device_class: ""
