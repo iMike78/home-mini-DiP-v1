@@ -7967,7 +7967,7 @@
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "4ffc3944-5a2e-43d9-b0d7-f616c542005c")
 		(property "Reference" "TP8"
 			(at 176.53 74.9299 90)
