@@ -9718,6 +9718,15 @@
 				(hide yes)
 			)
 		)
+		(property "Purchase-URL" "https://www.lcsc.com/product-detail/C19702.html?s_z=n_CL10A106KP8NNNC"
+			(at 148.59 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "29696423-caab-4221-8e23-f03e7d6207b3")
 		)
@@ -11059,6 +11068,15 @@
 				(hide yes)
 			)
 		)
+		(property "Purchase-URL" "https://www.lcsc.com/product-detail/C19702.html?s_z=n_CL10A106KP8NNNC"
+			(at 257.81 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "947989f3-b72e-4bab-8fcb-5c1e886f7aec")
 		)
@@ -11846,6 +11864,15 @@
 			)
 		)
 		(property "Manufacturer part #" ""
+			(at 148.59 132.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Purchase-URL" "https://www.lcsc.com/product-detail/C19702.html?s_z=n_CL10A106KP8NNNC"
 			(at 148.59 132.08 0)
 			(effects
 				(font
@@ -16145,6 +16172,15 @@
 				(hide yes)
 			)
 		)
+		(property "Purchase-URL" "https://www.lcsc.com/product-detail/C89334.html?s_z=n_2450AT18A100E"
+			(at 24.13 71.12 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "8f4084dd-d148-4838-af95-8e9ba3c68501")
 		)
@@ -19209,6 +19245,15 @@
 			)
 		)
 		(property "Manufacturer part #" ""
+			(at 270.51 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Purchase-URL" "https://www.lcsc.com/product-detail/C19702.html?s_z=n_CL10A106KP8NNNC"
 			(at 270.51 134.62 0)
 			(effects
 				(font

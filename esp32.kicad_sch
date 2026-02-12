@@ -13076,6 +13076,15 @@
 				(hide yes)
 			)
 		)
+		(property "Purchase-URL" "https://www.lcsc.com/product-detail/C424431.html?s_z=n_TAXM40M4ZCBCDT2T"
+			(at 64.77 85.09 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "f165fb81-0cc8-4dc7-882a-83beb82d7c00")
 		)
@@ -13608,6 +13617,15 @@
 			)
 		)
 		(property "Manufacturer part #" ""
+			(at 91.44 177.8 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Purchase-URL" "https://www.lcsc.com/product-detail/C221897.html?s_z=n_PTS810SJS250SMTRLFS"
 			(at 91.44 177.8 90)
 			(effects
 				(font
