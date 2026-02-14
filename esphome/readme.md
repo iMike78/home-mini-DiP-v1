@@ -125,3 +125,4 @@ Releases/
 - All full configuration functionality is preserved
 - Factory firmware contains only bootstrap functions
 - LED control works in both versions
+- Future Firmware updates are not automatic. Users must manually check for new releases and update via ESPHome Dashboard.
