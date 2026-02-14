@@ -21,6 +21,7 @@ substitutions:
   mute_switch_off_sound_file: https://github.com/esphome/home-assistant-voice-pe/raw/dev/sounds/mute_switch_off.flac
   timer_finished_sound_file: https://github.com/esphome/home-assistant-voice-pe/raw/dev/sounds/timer_finished.flac
   wake_word_triggered_sound_file: https://github.com/esphome/home-assistant-voice-pe/raw/dev/sounds/wake_word_triggered.flac
+  volume_tick_sound_file: https://raw.githubusercontent.com/iMike78/home-mini-DiP-v1/main/sounds/volume.flac
   center_button_press_sound_file: https://github.com/esphome/home-assistant-voice-pe/raw/dev/sounds/center_button_press.flac
   center_button_double_press_sound_file: https://github.com/esphome/home-assistant-voice-pe/raw/dev/sounds/center_button_double_press.flac
   center_button_triple_press_sound_file: https://github.com/esphome/home-assistant-voice-pe/raw/dev/sounds/center_button_triple_press.flac
@@ -38,10 +39,10 @@ esphome:
   name: "${name}"
   friendly_name: "${friendly_name}"
   project: 
-    name: ildevices.micimike
+    name: imike78.micimike
     version: v0.9.0
   name_add_mac_suffix: true
-  min_version: 2025.11.0
+  min_version: 2025.12.0
   on_boot:
     - priority: 375
       then:
@@ -115,9 +116,9 @@ ota:
     id: ota_esphome
 
 logger:
-  level: DEBUG
+  level: INFO
   logs:
-    touch: DEBUG
+    esp32_touch: ERROR
 
 i2c:
   - id: internal_i2c
@@ -178,8 +179,8 @@ globals:
     type: bool
     restore_value: no
     initial_value: 'false'
-  # Global variable tracking if the dial was recently touched.
-  - id: dial_touched
+  # Global variable tracking if the volume up/down button was recently touched.
+  - id: volume_button_touched
     type: bool
     restore_value: no
     initial_value: 'false'
@@ -293,15 +294,15 @@ switch:
           ESP_LOGI("aic3204_test", "DAC UNMUTE -> %s", ok ? "OK" : "FAIL");
 
 esp32_touch:
-  setup_mode: false
+  setup_mode: True
   sleep_duration: 2ms
   measurement_duration: 800us
   low_voltage_reference: 0.5V
   high_voltage_reference: 2.4V
   filter_mode: IIR_16
-  debounce_count: 3
+  debounce_count: 7
   noise_threshold: 0
-  jitter_step: 0
+  jitter_step: 4
   smooth_mode: IIR_2
   denoise_grade: BIT8
   denoise_cap_level: L0
@@ -333,15 +334,16 @@ binary_sensor:
 
   - platform: esp32_touch
     id: volume_up
-    pin: GPIO2
+    pin: GPIO4
     threshold: 10000
     on_press:
       - if:
           condition:
             binary_sensor.is_off: center_button
           then:
+            - lambda: id(volume_button_touched) = true;
             - script.execute:
-                id: control_volume
+                id: volume_hold
                 increase_volume: true
           else:
             - if:
@@ -349,13 +351,19 @@ binary_sensor:
                   media_player.is_playing:
                     id: sendspin_group_media_player
                 then:
+                  - lambda: id(volume_button_touched) = true;
                   - script.execute:
                       id: control_group_volume
                       increase_volume: true
+    on_release:
+      - script.stop: volume_hold
+      - delay: 1s
+      - lambda: id(volume_button_touched) = false;
+      - script.execute: control_leds
 
   - platform: esp32_touch
     id: center_button
-    threshold: 10000
+    threshold: 5000
     pin: GPIO3
     on_press:
       - script.execute: control_leds
@@ -568,15 +576,16 @@ binary_sensor:
 
   - platform: esp32_touch
     id: volume_down
-    pin: GPIO4
-    threshold: 10000
+    pin: GPIO2
+    threshold: 5000
     on_press:
       - if:
           condition:
             binary_sensor.is_off: center_button
           then:
+            - lambda: id(volume_button_touched) = true;
             - script.execute:
-                id: control_volume
+                id: volume_hold
                 increase_volume: false
           else:
             - if:
@@ -584,9 +593,15 @@ binary_sensor:
                   media_player.is_playing:
                     id: sendspin_group_media_player
                 then:
+                  - lambda: id(volume_button_touched) = true;
                   - script.execute:
                       id: control_group_volume
                       increase_volume: false
+    on_release:
+      - script.stop: volume_hold
+      - delay: 1s
+      - lambda: id(volume_button_touched) = false;
+      - script.execute: control_leds
 
 light:
   # Hardware LED ring. Not used because remapping needed
@@ -733,18 +748,17 @@ light:
                 it[i] = Color::BLACK;
               }
             }
+            // Microphone muted: LED 3 piros (1 LED a 4-ből)
             if ( id(master_mute_switch).state ) {
               it[2] = Color::BLACK;
               it[3] = muted_color;
-              it[4] = Color::BLACK;
-              it[8] = Color::BLACK;
-              it[9] = muted_color;
-              it[10] = Color::BLACK;
+              it[0] = Color::BLACK;
             }
+            // Speaker muted/silent: LED 1 piros
             if ( id(external_media_player).volume == 0.0f || id(external_media_player).is_muted() ) {
-              it[5] = Color::BLACK;
-              it[6] = muted_color;
-              it[7] = Color::BLACK;
+              it[0] = Color::BLACK;
+              it[1] = muted_color;
+              it[2] = Color::BLACK;
             }
       - addressable_lambda:
           name: "Voice kit startup failed"
@@ -753,7 +767,7 @@ light:
             static int8_t index = 0;
             Color fail_color(255, 0, 0);
             for (uint8_t i = 0; i < 4; i++) {
-              if (i % 3) {
+              if (i % 2) {
                 it[i] = Color::BLACK;
               } else {
                 it[i] = fail_color;
@@ -763,20 +777,18 @@ light:
           name: "Volume Display"
           update_interval: 50ms
           lambda: |-
-            auto light_color = id(led_ring).current_values;
-            Color color(light_color.get_red() * 255, light_color.get_green() * 255,
-                  light_color.get_blue() * 255);
+            Color color(255, 255, 255);
             Color silenced_color(255, 0, 0);
             auto volume_ratio = 4.0f * id(external_media_player).volume;
             for (uint8_t i = 0; i < 4; i++) {
               if (i <= volume_ratio) {
-                it[(6+i)%4] = color * min( 255.0f * (volume_ratio - i) , 255.0f ) ;
+                it[i] = color * min( 255.0f * (volume_ratio - i) , 255.0f ) ;
               } else {
-                it[(6+i)%4] = Color::BLACK;
+                it[i] = Color::BLACK;
               }
             }
             if (id(external_media_player).volume == 0.0f) {
-              it[6] = silenced_color;
+              it[0] = silenced_color;
             }
       - addressable_lambda:
           name: "Center Button Touched"
@@ -843,7 +855,6 @@ light:
             }
             if ( id(master_mute_switch).state ) {
               it[3] = muted_color;
-              it[9] = muted_color;
             }
             if (brightness_decreasing) {
               brightness_step++;
@@ -872,12 +883,7 @@ light:
               }
             }
             if (id(master_mute_switch).state) {
-              it[2] = Color::BLACK;
               it[3] = muted_color;
-              it[4] = Color::BLACK;
-              it[8] = Color::BLACK;
-              it[9] = muted_color;
-              it[10] = Color::BLACK;
             }
             id(global_led_animation_index) = (4 + id(global_led_animation_index) - 1) % 4;
       - addressable_rainbow:
@@ -917,52 +923,7 @@ light:
               }
             }
             index = (index + 1) % 4;
-      - addressable_lambda:
-          name: "Jack Plugged"
-          update_interval: 40ms
-          lambda: |-
-              static uint8_t index = 0;
-              if (initial_run) {
-                index = 0;
-              }
-              auto light_color = id(led_ring).current_values;
-              Color color(light_color.get_red() * 255, light_color.get_green() * 255,
-                    light_color.get_blue() * 255);
-              if (index <= 6) {
-                for (uint8_t i = 0; i < 4; i++) {
-                  if (i == index) {
-                    it[i] = color;
-                  } else if (i == (4 - index) % 4) {
-                    it[i] = color;
-                  } else {
-                    it[i] = Color::BLACK;
-                  }
-                }
-              }
-              index = (index + 1);
-      - addressable_lambda:
-          name: "Jack Unplugged"
-          update_interval: 40ms
-          lambda: |-
-              static uint8_t index = 0;
-              if (initial_run) {
-                index = 0;
-              }
-              auto light_color = id(led_ring).current_values;
-              Color color(light_color.get_red() * 255, light_color.get_green() * 255,
-                    light_color.get_blue() * 255);
-              if (index <= 6) {
-                for (uint8_t i = 0; i < 4; i++) {
-                  if (i == 6 - index) {
-                    it[i] = color;
-                  } else if (i == (6 + index) % 4) {
-                    it[i] = color;
-                  } else {
-                    it[i] = Color::BLACK;
-                  }
-                }
-              }
-              index = (index + 1);
+
 
   # User facing LED ring. Remapping of the internal LEDs.
   # Exposed to be used by the user.
@@ -1021,6 +982,8 @@ script:
             id(control_leds_no_ha_connection_state).execute();
           } else if (id(center_button).state) {
             id(control_leds_center_button_touched).execute();
+          } else if (id(volume_button_touched)) {
+            id(control_leds_volume_button_touched).execute();
           } else if (id(timer_ringing).state) {
             id(control_leds_timer_ringing).execute();
           } else if (id(voice_assistant_phase) == ${voice_assist_waiting_for_command_phase_id}) {
@@ -1193,6 +1156,18 @@ script:
           id: voice_assistant_leds
           effect: "Center Button Touched"
 
+  # Script executed when a volume button is touched
+  # Shows a visual representation of the current volume level on the LEDs.
+  - id: control_leds_volume_button_touched
+    then:
+      - light.turn_on:
+          brightness: !lambda return max( id(led_ring).current_values.get_brightness() , 0.2f );
+          red: 100%
+          green: 100%
+          blue: 100%
+          id: voice_assistant_leds
+          effect: "Volume Display"
+
   # Script executed when the timer is ringing, to control the LEDs
   # The LED ring blinks.
   - id: control_leds_timer_ringing
@@ -1211,13 +1186,52 @@ script:
           id: voice_assistant_leds
           effect: "Timer tick"
 
-  # Script executed when the volume is increased/decreased from the dial
-  - id: control_volume
+  # Script executed on volume button hold - fires one step immediately, then repeats after 400ms threshold
+  - id: volume_hold
     mode: restart
+    parameters:
+      increase_volume: bool
+    then:
+      # Azonnali első lépés tap-ra
+      - script.execute:
+          id: control_volume
+          increase_volume: !lambda return increase_volume;
+      # Long press threshold - ennyi után indul a folyamatos ismétlés
+      - delay: 400ms
+      - while:
+          condition:
+            lambda: return true;
+          then:
+            - script.execute:
+                id: control_volume
+                increase_volume: !lambda return increase_volume;
+            - delay: 250ms
+
+  # Script: tick hang lejátszása ha nincs aktív lejátszás/announcement
+  - id: play_volume_tick
+    mode: single
+    then:
+      - if:
+          condition:
+            and:
+              - not:
+                  media_player.is_playing:
+                    id: external_media_player
+              - not:
+                  media_player.is_announcing:
+                    id: external_media_player
+          then:
+            - script.execute:
+                id: play_sound
+                priority: false
+                sound_file: volume_tick_sound
+
+  # Script executed when the volume is increased/decreased from the volume buttons
+  - id: control_volume
+    mode: single
     parameters:
       increase_volume: bool  # True: Increase volume / False: Decrease volume.
     then:
-      - delay: 16ms
       - if:
           condition:
             lambda: return increase_volume;
@@ -1227,12 +1241,10 @@ script:
           else:
             - media_player.volume_down:
                 id: external_media_player
-      - script.execute: control_leds
-      - delay: 1s
-      - lambda: id(dial_touched) = false;
+      - script.execute: play_volume_tick
       - script.execute: control_leds
 
-  # Script executed when the volume is increased/decreased from the dial for the group media player
+  # Script executed when the volume is increased/decreased from the volume buttons for the group media player
   - id: control_group_volume
     mode: restart
     parameters:
@@ -1252,7 +1264,7 @@ script:
                 id: sendspin_group_media_player
       - script.execute: control_leds
       - delay: 1s
-      - lambda: id(dial_touched) = false;
+      - lambda: id(volume_button_touched) = false;
       - lambda: id(group_volume_changed) = false;
       - script.execute: control_leds
 
@@ -1440,6 +1452,8 @@ media_source:
     files:
       - id: center_button_press_sound
         file: ${center_button_press_sound_file}
+      - id: volume_tick_sound
+        file: ${volume_tick_sound_file}
       - id: center_button_double_press_sound
         file: ${center_button_double_press_sound_file}
       - id: center_button_triple_press_sound
@@ -1530,22 +1544,22 @@ external_components:
       - voice_kit
     refresh: 0s
   - source:
-      # https://github.com/esphome/esphome/pull/12253
+      # https://github.com/esphome/esphome/pull/12253 (merged into upstream ESPHome, will be available in ESPHome 2026.2.0)
       type: git
       url: https://github.com/esphome/esphome
-      ref: 0fe230114c80b6d3378f04c777baadee178e40ad
+      ref: c28c97fbaf15c4ce353317e873054fb00a1d7a6d  # ESPHome dev branch commit hash
     components: [mixer]
   - source:
-      # https://github.com/esphome/esphome/pull/12254
+      # https://github.com/esphome/esphome/pull/12254 (merged into upstream ESPHome, will be available in ESPHome 2026.2.0)
       type: git
       url: https://github.com/esphome/esphome
-      ref: 1ab4b990092ae063a16cb1511a188c536fdb336e
+      ref: 298efb53400852a09e2f8bdf16feac9a58422059  # ESPHome dev branch commit hash
     components: [resampler]
   - source:
       # https://github.com/esphome/esphome/pull/12256
       type: git
       url: https://github.com/esphome/esphome
-      ref: 047ba60f01af84513f8d5aabaa2a53074facee8f
+      ref: 9148832ea4e54907bad71a24d4ced1ce6c862433
     components: [audio]
   - source:
       # https://github.com/esphome/esphome/pull/12258
@@ -1553,11 +1567,19 @@ external_components:
       url: https://github.com/esphome/esphome
       ref: bff22983a390352360796f8e1363127e0cd1f898
     components: [media_player]
-  - source: github://pr#12429
-    components: [color_noise, file, http_request, media_source, speaker_source]
-  - source: github://pr#12284
+  - source:
+      # https://github.com/esphome/esphome/pull/12284
+      type: git
+      url: https://github.com/esphome/esphome
+      ref: 3cc894763b05ac8ffd9fdd15bcb549d47cadf6eb
     components: [mdns, sendspin]
-    refresh: 1h
+  - source:
+      # https://github.com/esphome/esphome/pull/12429
+      type: git
+      url: https://github.com/esphome/esphome
+      ref: 32708a2ee74f5ea4107448f62755004ad3e879c5
+    refresh: 0s
+    components: [file, http_request, media_source, speaker_source]
 
 audio_dac:
   - platform: aic3204
@@ -2214,22 +2236,3 @@ button:
     entity_category: config
     disabled_by_default: true
     icon: "mdi:restart"
-
-debug:
-  update_interval: 5s
-
-sensor:
-  - platform: wifi_signal # Reports the WiFi signal strength/RSSI in dB
-    name: "WiFi Signal dB"
-    id: wifi_signal_db
-    update_interval: 60s
-    entity_category: "diagnostic"
-
-  - platform: copy # Reports the WiFi signal strength in %
-    source_id: wifi_signal_db
-    name: "WiFi Signal Percent"
-    filters:
-      - lambda: return min(max(2 * (x + 100.0), 0.0), 100.0);
-    unit_of_measurement: "%"
-    entity_category: "diagnostic"
-    device_class: ""
